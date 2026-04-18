@@ -412,20 +412,20 @@
       <div class="contact-form-title">Send Us a Message</div>
       <div id="cf-content">
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="cf-fname"></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="cf-lname"></div>
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="cf-fname" name="first_name"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="cf-lname" name="last_name"></div>
         </div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com" id="cf-email"></div>
-        <div class="form-group"><label>Mobile Number</label><input type="tel" placeholder="04XX XXX XXX" id="cf-phone"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com" id="cf-email" name="email"></div>
+        <div class="form-group"><label>Mobile Number</label><input type="tel" placeholder="04XX XXX XXX" id="cf-phone" name="mobile"></div>
         <div class="form-group"><label>Service Required</label>
-          <select id="cf-service">
+          <select id="cf-service" name="service">
             <option value="">Select a service...</option>
             <option>General Residential Plumbing</option><option>Commercial Plumbing</option>
             <option>Drainage</option><option>Hot Water Systems</option>
             <option>Excavation & Earthmoving</option><option>Emergency Service</option><option>Other / Not Sure</option>
           </select>
         </div>
-        <div class="form-group"><label>Message</label><textarea placeholder="Briefly describe your job or issue..." id="cf-message"></textarea></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Briefly describe your job or issue..." id="cf-message" name="message"></textarea></div>
         <button class="form-submit" onclick="submitContact()">Send Enquiry</button>
       </div>
       <div class="form-success" id="cf-success">
@@ -455,25 +455,25 @@
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-eyebrow">Odyssey Plumbing & Drainage</div>
     <div class="modal-title">Book a Job</div>
-    <p class="modal-sub">Fill in your details below and we'll confirm your booking promptly.</p>
     <div id="modal-form">
+      <p class="modal-sub">Fill in your details below and we'll confirm your booking promptly.</p>
       <div class="form-row">
-        <div class="form-group"><label>First Name *</label><input type="text" placeholder="John" id="m-fname"></div>
-        <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" id="m-lname"></div>
+        <div class="form-group"><label>First Name *</label><input type="text" placeholder="John" id="m-fname" name="first_name"></div>
+        <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" id="m-lname" name="last_name"></div>
       </div>
-      <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" id="m-email"></div>
-      <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="04XX XXX XXX" id="m-phone"></div>
-      <div class="form-group"><label>Property Address</label><input type="text" placeholder="123 Example St, Suburb VIC" id="m-address"></div>
+      <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" id="m-email" name="email"></div>
+      <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="04XX XXX XXX" id="m-phone" name="mobile"></div>
+      <div class="form-group"><label>Property Address</label><input type="text" placeholder="123 Example St, Suburb VIC" id="m-address" name="property_address"></div>
       <div class="form-group"><label>Service Required *</label>
-        <select id="m-service">
+        <select id="m-service" name="service">
           <option value="">Select a service...</option>
           <option>General Residential Plumbing</option><option>Commercial Plumbing</option>
           <option>Drainage</option><option>Hot Water Systems</option>
           <option>Excavation & Earthmoving</option><option>Emergency Service (24/7)</option><option>Other / Not Sure</option>
         </select>
       </div>
-      <div class="form-group"><label>Preferred Date / Time</label><input type="text" placeholder="e.g. Weekday mornings, ASAP, 15 Jan" id="m-date"></div>
-      <div class="form-group"><label>Job Description *</label><textarea placeholder="Describe the job or issue in as much detail as possible..." id="m-desc"></textarea></div>
+      <div class="form-group"><label>Preferred Date / Time</label><input type="text" placeholder="e.g. Weekday mornings, ASAP, 15 Jan" id="m-date" name="preferred_date"></div>
+      <div class="form-group"><label>Job Description *</label><textarea placeholder="Describe the job or issue in as much detail as possible..." id="m-desc" name="job_description"></textarea></div>
       <button class="form-submit" onclick="submitBooking()">Submit Booking Request</button>
     </div>
     <div class="form-success" id="modal-success">
@@ -487,22 +487,93 @@
 <script>
   function openModal() { document.getElementById('bookingModal').classList.add('open'); document.body.style.overflow='hidden'; }
   function closeModal() { document.getElementById('bookingModal').classList.remove('open'); document.body.style.overflow=''; }
+
   function submitBooking() {
     const fields=['m-fname','m-lname','m-email','m-phone','m-service','m-desc'];
     let ok=true;
     fields.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){el.style.borderColor='#e05555';ok=false;}else el.style.borderColor=''; });
     if(!ok)return;
-    document.getElementById('modal-form').style.display='none';
-    document.getElementById('modal-success').style.display='block';
+
+    const btn = document.querySelector('#modal-form .form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = {
+      first_name: document.getElementById('m-fname').value,
+      last_name: document.getElementById('m-lname').value,
+      email: document.getElementById('m-email').value,
+      mobile: document.getElementById('m-phone').value,
+      property_address: document.getElementById('m-address').value,
+      service: document.getElementById('m-service').value,
+      preferred_date: document.getElementById('m-date').value,
+      job_description: document.getElementById('m-desc').value
+    };
+
+    fetch('https://formspree.io/f/mnjldkrk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(r => {
+      if(r.ok || r.next) {
+        document.getElementById('modal-form').style.display='none';
+        document.getElementById('modal-success').style.display='block';
+      } else {
+        btn.textContent = 'Submit Booking Request';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or call us on 9308 4779.');
+      }
+    })
+    .catch(() => {
+      btn.textContent = 'Submit Booking Request';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call us on 9308 4779.');
+    });
   }
+
   function submitContact() {
     const fields=['cf-fname','cf-lname','cf-email','cf-phone'];
     let ok=true;
     fields.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){el.style.borderColor='#e05555';ok=false;}else el.style.borderColor=''; });
     if(!ok)return;
-    document.getElementById('cf-content').style.display='none';
-    document.getElementById('cf-success').style.display='block';
+
+    const btn = document.querySelector('#cf-content .form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = {
+      first_name: document.getElementById('cf-fname').value,
+      last_name: document.getElementById('cf-lname').value,
+      email: document.getElementById('cf-email').value,
+      mobile: document.getElementById('cf-phone').value,
+      service: document.getElementById('cf-service').value,
+      message: document.getElementById('cf-message').value
+    };
+
+    fetch('https://formspree.io/f/mnjldkrk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(r => {
+      if(r.ok || r.next) {
+        document.getElementById('cf-content').style.display='none';
+        document.getElementById('cf-success').style.display='block';
+      } else {
+        btn.textContent = 'Send Enquiry';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or call us on 9308 4779.');
+      }
+    })
+    .catch(() => {
+      btn.textContent = 'Send Enquiry';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call us on 9308 4779.');
+    });
   }
+
   document.addEventListener('keydown', e=>{ if(e.key==='Escape')closeModal(); });
 </script>
 </body>
