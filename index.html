@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odyssey Plumbing & Drainage | Melbourne & Northern Suburbs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a3a5c; --navy-dark: #0f2540; --navy-mid: #1e4976;
+    --sky: #3db8e8; --sky-light: #a8dff5;
+    --white: #ffffff; --off-white: #f4f8fc; --light-gray: #e8eef4;
+    --text-dark: #0f2540; --text-mid: #3a5a7a; --text-light: #6a8aaa;
+    --emergency: #c0392b;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; color: var(--text-dark); background: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: var(--navy-dark); padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 0; }
+  .nav-logo img { height: 46px; object-fit: contain; display: block; }
+  .nav-logo-text {
+    display: none; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.25rem; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 0.03em;
+  }
+  .nav-logo-text span { color: var(--sky); }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--sky-light); text-decoration: none; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--sky); }
+  .nav-cta { background: var(--sky) !important; color: var(--navy-dark) !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 700 !important; }
+  .nav-cta:hover { background: var(--sky-light) !important; }
+  .mobile-book {
+    display: none; background: var(--sky); color: var(--navy-dark); border: none;
+    padding: 0.55rem 1.1rem; font-family: 'Barlow', sans-serif; font-weight: 700;
+    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 4px; cursor: pointer;
+  }
+  .emergency-bar {
+    background: var(--emergency); text-align: center; padding: 0.45rem;
+    font-size: 0.82rem; font-weight: 700; color: white; letter-spacing: 0.04em;
+    position: fixed; top: 72px; left: 0; right: 0; z-index: 999;
+  }
+  .emergency-bar a { color: white; text-decoration: none; }
+
+  /* HERO */
+  .hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 160px 5% 80px; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&auto=format&fit=crop&q=80');
+    background-size: cover; background-position: center; filter: brightness(0.22); z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(10,24,42,0.95) 0%, rgba(26,58,92,0.7) 60%, rgba(30,73,118,0.4) 100%);
+    z-index: 1;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
+  .hero-eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--sky); }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 800; color: white; line-height: 1.05; margin-bottom: 1.5rem; text-transform: uppercase; }
+  .hero h1 span { color: var(--sky); }
+  .hero-sub { font-size: 1.05rem; color: var(--sky-light); line-height: 1.7; margin-bottom: 2.5rem; max-width: 500px; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--sky); color: var(--navy-dark); border: none; padding: 1rem 2rem; font-family: 'Barlow', sans-serif; font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: var(--sky-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(61,184,232,0.35); }
+  .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.4); padding: 1rem 2rem; font-family: 'Barlow', sans-serif; font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+  .btn-outline:hover { border-color: var(--sky); color: var(--sky); }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; margin-top: 3rem; }
+  .hero-stat { background: rgba(255,255,255,0.05); padding: 1.2rem 1rem; text-align: center; }
+  .hero-stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--sky); display: block; }
+  .hero-stat-label { font-size: 0.72rem; color: var(--sky-light); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .hero-right { display: flex; flex-direction: column; gap: 1rem; }
+  .trust-card { background: rgba(15,37,64,0.75); border: 1px solid rgba(61,184,232,0.25); border-radius: 8px; padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem; backdrop-filter: blur(6px); transition: border-color 0.2s; }
+  .trust-card:hover { border-color: rgba(61,184,232,0.6); }
+  .trust-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(61,184,232,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.3rem; }
+  .trust-title { font-weight: 700; color: white; font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .trust-desc { font-size: 0.8rem; color: var(--sky-light); line-height: 1.4; }
+
+  /* PHONE BANNER */
+  .phone-banner { background: var(--sky); padding: 1.4rem 5%; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+  .phone-banner-text { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; color: var(--navy-dark); letter-spacing: 0.06em; }
+  .phone-banner-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--navy-dark); letter-spacing: 0.04em; text-decoration: none; }
+  .phone-banner-btn { background: var(--navy-dark); color: var(--sky); padding: 0.7rem 1.8rem; border-radius: 4px; font-weight: 700; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.08em; border: none; cursor: pointer; font-family: 'Barlow', sans-serif; transition: background 0.2s; }
+  .phone-banner-btn:hover { background: var(--navy); }
+
+  /* SECTIONS */
+  section { padding: 5rem 5%; }
+  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+  .section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--sky); }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; text-transform: uppercase; color: var(--navy-dark); line-height: 1.1; margin-bottom: 0.8rem; }
+  .section-sub { font-size: 1rem; color: var(--text-mid); line-height: 1.7; max-width: 560px; }
+
+  /* SERVICES */
+  .services-section { background: var(--off-white); }
+  .services-header { text-align: center; margin-bottom: 3.5rem; }
+  .services-header .section-label { justify-content: center; }
+  .services-header .section-sub { margin: 0 auto; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+  .service-card { background: white; border-radius: 10px; overflow: hidden; border: 1px solid var(--light-gray); transition: all 0.25s; }
+  .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(26,58,92,0.13); }
+  .service-card-img { width: 100%; height: 175px; object-fit: cover; display: block; background: var(--light-gray); }
+  .service-card-body { padding: 1.4rem; border-top: 3px solid var(--sky); }
+  .service-card.emergency .service-card-body { border-top-color: var(--emergency); background: #fff8f8; }
+  .service-icon { font-size: 1.3rem; margin-bottom: 0.5rem; display: block; }
+  .service-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; color: var(--navy-dark); margin-bottom: 0.4rem; }
+  .service-card.emergency .service-name { color: var(--emergency); }
+  .service-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 0.9rem; }
+  .service-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+  .service-list li { font-size: 0.82rem; color: var(--text-mid); display: flex; align-items: center; gap: 0.5rem; }
+  .service-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--sky); flex-shrink: 0; }
+  .service-card.emergency .service-list li::before { background: var(--emergency); }
+
+  /* PHOTO STRIP */
+  .photo-strip { display: grid; grid-template-columns: repeat(4, 1fr); height: 250px; overflow: hidden; }
+  .photo-strip-item { position: relative; overflow: hidden; }
+  .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+  .photo-strip-item:hover img { transform: scale(1.06); }
+  .photo-strip-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,24,42,0.6) 0%, transparent 55%); }
+  .photo-strip-label { position: absolute; bottom: 0.9rem; left: 1rem; color: white; font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; z-index: 1; }
+
+  /* WHY US */
+  .why-section { background: var(--navy-dark); color: white; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+  .why-section .section-title { color: white; }
+  .why-section .section-sub { color: var(--sky-light); }
+  .why-features { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2rem; }
+  .why-feature { display: flex; gap: 1rem; align-items: flex-start; }
+  .why-feature-icon { width: 44px; height: 44px; border-radius: 8px; background: rgba(61,184,232,0.12); border: 1px solid rgba(61,184,232,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .why-feature-title { font-weight: 700; color: white; margin-bottom: 0.2rem; font-size: 0.95rem; }
+  .why-feature-text { font-size: 0.86rem; color: var(--sky-light); line-height: 1.55; }
+  .why-right { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 210px 210px; gap: 0.75rem; }
+  .why-img { border-radius: 8px; overflow: hidden; }
+  .why-img:first-child { grid-row: span 2; }
+  .why-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+  .why-img:hover img { transform: scale(1.04); }
+
+  /* AREAS */
+  .areas-section { background: var(--off-white); }
+  .areas-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 1200px; }
+  .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 0.6rem; margin-top: 2rem; }
+  .area-chip { background: white; border: 1px solid var(--light-gray); border-left: 3px solid var(--sky); border-radius: 4px; padding: 0.55rem 0.85rem; font-size: 0.84rem; font-weight: 600; color: var(--navy); transition: background 0.2s; }
+  .area-chip:hover { background: #eef3f8; border-left-color: var(--navy); }
+  .areas-note { margin-top: 1.2rem; font-size: 0.84rem; color: var(--text-light); font-style: italic; }
+  .areas-map-wrap { border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(26,58,92,0.12); min-height: 420px; }
+  .areas-map-wrap iframe { width: 100%; height: 420px; border: none; display: block; }
+
+  /* CONTACT */
+  .contact-section { background: var(--navy-dark); color: white; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1200px; margin: 0 auto; }
+  .contact-section .section-title { color: white; }
+  .contact-section .section-sub { color: var(--sky-light); }
+  .contact-items { display: flex; flex-direction: column; gap: 1.3rem; margin-top: 2rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-item-icon { width: 44px; height: 44px; border-radius: 8px; background: rgba(61,184,232,0.12); border: 1px solid rgba(61,184,232,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .contact-item-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sky); margin-bottom: 0.2rem; }
+  .contact-item-val { font-size: 0.92rem; color: var(--sky-light); line-height: 1.5; }
+  .contact-item-val a { color: var(--sky-light); text-decoration: none; }
+  .contact-item-val a:hover { color: var(--sky); }
+  .contact-form-wrap { background: rgba(255,255,255,0.05); border: 1px solid rgba(61,184,232,0.2); border-radius: 10px; padding: 2rem; }
+  .contact-form-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; color: white; margin-bottom: 1.4rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.9rem; }
+  .form-group label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sky); }
+  .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,0.07); border: 1px solid rgba(61,184,232,0.25); border-radius: 5px; padding: 0.7rem 0.9rem; font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: white; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(168,223,245,0.35); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--sky); background: rgba(255,255,255,0.1); }
+  .form-group select option { background: var(--navy-dark); color: white; }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-submit { width: 100%; background: var(--sky); color: var(--navy-dark); border: none; padding: 1rem; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 5px; cursor: pointer; margin-top: 0.3rem; transition: all 0.2s; }
+  .form-submit:hover { background: var(--sky-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(61,184,232,0.3); }
+  .form-success { display: none; text-align: center; padding: 2rem 1rem; }
+  .form-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .form-success h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; color: var(--sky); margin-bottom: 0.5rem; }
+  .form-success p { color: var(--sky-light); font-size: 0.9rem; line-height: 1.7; }
+
+  /* FOOTER */
+  footer { background: #060d17; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { display: flex; align-items: center; }
+  .footer-logo img { height: 36px; object-fit: contain; }
+  .footer-logo-text { display: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; color: white; text-transform: uppercase; }
+  .footer-logo-text span { color: var(--sky); }
+  .footer-text { font-size: 0.8rem; color: rgba(168,223,245,0.45); text-align: center; line-height: 1.7; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 0.8rem; color: rgba(168,223,245,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--sky); }
+
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(6,13,23,0.88); z-index: 2000; align-items: center; justify-content: center; padding: 1rem; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--navy-dark); border: 1px solid rgba(61,184,232,0.3); border-radius: 12px; width: 100%; max-width: 580px; max-height: 90vh; overflow-y: auto; padding: 2.5rem; position: relative; animation: modalIn 0.22s ease; }
+  @keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(0.97); } to { opacity: 1; transform: none; } }
+  .modal-close { position: absolute; top: 1.2rem; right: 1.2rem; background: rgba(255,255,255,0.08); border: none; color: var(--sky-light); width: 32px; height: 32px; border-radius: 50%; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; font-family: sans-serif; }
+  .modal-close:hover { background: rgba(255,255,255,0.15); }
+  .modal-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky); margin-bottom: 0.4rem; }
+  .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 800; text-transform: uppercase; color: white; margin-bottom: 0.3rem; }
+  .modal-sub { font-size: 0.85rem; color: var(--sky-light); margin-bottom: 1.8rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-strip { grid-template-columns: repeat(2, 1fr); height: auto; }
+    .photo-strip-item { height: 200px; }
+  }
+  @media (max-width: 900px) {
+    .hero-grid, .why-grid, .contact-grid, .areas-layout { grid-template-columns: 1fr; }
+    .hero-right, .why-right { display: none; }
+    nav ul.nav-links { display: none; }
+    .mobile-book { display: inline-block; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 3.5rem 4%; }
+    .hero { padding: 140px 4% 60px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; align-items: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="emergency-bar">🚨 24/7 Emergency Plumbing Available — Call Now: <a href="tel:93084779">9308 4779</a></div>
+
+<nav>
+  <a class="nav-logo" href="#home">
+    <img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey Plumbing & Drainage"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text">Odyssey <span>P&amp;D</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#areas">Service Areas</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Book Now</a></li>
+  </ul>
+  <button class="mobile-book" onclick="openModal()">Book Now</button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Melbourne's Trusted Plumbing Experts</div>
+      <h1>Expert Plumbing &amp; Drainage <span>Solutions</span> Across Victoria</h1>
+      <p class="hero-sub">Residential and commercial plumbing, drainage, excavation and earthmoving across Melbourne Metro and the Northern Suburbs. Licensed. Insured. Available 24/7.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="openModal()">Book a Job</button>
+        <a class="btn-outline" href="tel:93084779">📞 Call 9308 4779</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">24/7</span><span class="hero-stat-label">Emergency</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">VIC</span><span class="hero-stat-label">Licensed</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Insured</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="trust-card"><div class="trust-icon">🛡️</div><div><div class="trust-title">Licensed Victorian Plumber</div><div class="trust-desc">Fully accredited with the Victorian Building Authority.</div></div></div>
+      <div class="trust-card"><div class="trust-icon">✅</div><div><div class="trust-title">Fully Insured</div><div class="trust-desc">Complete public liability and professional indemnity on every job.</div></div></div>
+      <div class="trust-card"><div class="trust-icon">🚨</div><div><div class="trust-title">24/7 Emergency Available</div><div class="trust-desc">Burst pipes, blocked drains, no hot water — we respond fast.</div></div></div>
+      <div class="trust-card"><div class="trust-icon">📍</div><div><div class="trust-title">Melbourne Metro & Northern Suburbs</div><div class="trust-desc">Based in Epping — servicing all metro and northern corridor.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="phone-banner">
+  <span class="phone-banner-text">Need a plumber today?</span>
+  <a class="phone-banner-num" href="tel:93084779">📞 9308 4779</a>
+  <button class="phone-banner-btn" onclick="openModal()">Book Online</button>
+</div>
+
+<section class="services-section" id="services">
+  <div class="services-header">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">From everyday household repairs to large-scale commercial and civil works — we handle it all with expertise and professionalism.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img class="service-card-img" src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&auto=format&fit=crop&q=75" alt="Residential Plumbing" loading="lazy">
+      <div class="service-card-body">
+        <span class="service-icon">🔧</span>
+        <div class="service-name">General Residential Plumbing</div>
+        <p class="service-desc">All everyday household plumbing jobs handled promptly and professionally.</p>
+        <ul class="service-list"><li>Tap and fixture repairs & replacements</li><li>Leaking pipes and joints</li><li>Toilet repairs and installations</li><li>Bathroom and kitchen plumbing</li></ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-card-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=75" alt="Commercial Plumbing" loading="lazy">
+      <div class="service-card-body">
+        <span class="service-icon">🏢</span>
+        <div class="service-name">Commercial Plumbing</div>
+        <p class="service-desc">Reliable plumbing for businesses, developers and property managers.</p>
+        <ul class="service-list"><li>New construction plumbing</li><li>Fit-outs and refurbishments</li><li>Backflow prevention & compliance</li><li>Ongoing maintenance contracts</li></ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=75" alt="Drainage" loading="lazy">
+      <div class="service-card-body">
+        <span class="service-icon">🌊</span>
+        <div class="service-name">Drainage</div>
+        <p class="service-desc">Expert drainage solutions for residential and commercial properties.</p>
+        <ul class="service-list"><li>Blocked drain clearing</li><li>CCTV drain inspections</li><li>Stormwater drainage design</li><li>Sewer line repairs & relining</li></ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-card-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop&q=75" alt="Hot Water Systems" loading="lazy">
+      <div class="service-card-body">
+        <span class="service-icon">🚿</span>
+        <div class="service-name">Hot Water Systems</div>
+        <p class="service-desc">Supply, installation and servicing of all hot water system types.</p>
+        <ul class="service-list"><li>Gas, electric & solar systems</li><li>Heat pump hot water</li><li>Continuous flow / instantaneous</li><li>Emergency replacements & servicing</li></ul>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-card-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&auto=format&fit=crop&q=75" alt="Excavation" loading="lazy">
+      <div class="service-card-body">
+        <span class="service-icon">🚜</span>
+        <div class="service-name">Excavation & Earthmoving</div>
+        <p class="service-desc">Civil excavation for plumbing, drainage and site preparation works.</p>
+        <ul class="service-list"><li>Trenching for pipe installation</li><li>Site clearance and grading</li><li>Underground service location</li><li>Post-work reinstatement</li></ul>
+      </div>
+    </div>
+    <div class="service-card emergency">
+      <img class="service-card-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop&q=75" alt="Emergency Plumbing" loading="lazy">
+      <div class="service-card-body">
+        <span class="service-icon">🚨</span>
+        <div class="service-name">24/7 Emergency Services</div>
+        <p class="service-desc">Plumbing emergencies don't wait — neither do we. Fast response across Melbourne.</p>
+        <ul class="service-list"><li>Burst and leaking pipes</li><li>Blocked toilets and overflows</li><li>No hot water emergencies</li><li>Sewage backups</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="photo-strip">
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop&q=75" alt="Plumber at work" loading="lazy"><span class="photo-strip-label">Expert Tradesman</span></div>
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=75" alt="Commercial site" loading="lazy"><span class="photo-strip-label">Commercial Projects</span></div>
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1563461660947-507ef49e9c47?w=600&auto=format&fit=crop&q=75" alt="Pipework" loading="lazy"><span class="photo-strip-label">Drainage & Pipework</span></div>
+  <div class="photo-strip-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=75" alt="Tools" loading="lazy"><span class="photo-strip-label">Quality Workmanship</span></div>
+</div>
+
+<section class="why-section" id="about">
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">Professionals You Can Rely On</h2>
+      <p class="section-sub">Odyssey Plumbing & Drainage is a trusted name across Melbourne Metro and the Northern Suburbs. We combine technical expertise with honest, transparent service on every job.</p>
+      <div class="why-features">
+        <div class="why-feature"><div class="why-feature-icon">🛡️</div><div><div class="why-feature-title">Licensed & Accredited</div><div class="why-feature-text">All work carried out by fully licensed Victorian plumbers, registered with the Victorian Building Authority.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon">💰</div><div><div class="why-feature-title">Upfront, Honest Pricing</div><div class="why-feature-text">No hidden fees. We provide clear quotes before starting any work so you always know what you're paying.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon">⚡</div><div><div class="why-feature-title">Fast Response Times</div><div class="why-feature-text">Prompt attendance on every job — especially for urgent and emergency callouts across the metro area.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon">🏠</div><div><div class="why-feature-title">Residential & Commercial</div><div class="why-feature-text">Single-dwelling repairs to large commercial and civil projects — we have the equipment and expertise to deliver.</div></div></div>
+      </div>
+    </div>
+    <div class="why-right">
+      <div class="why-img"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop&q=75" alt="Plumber" loading="lazy"></div>
+      <div class="why-img"><img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400&auto=format&fit=crop&q=75" alt="Plumbing work" loading="lazy"></div>
+      <div class="why-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&auto=format&fit=crop&q=75" alt="Excavation" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas-section" id="areas">
+  <div class="areas-layout">
+    <div>
+      <div class="section-label">Where We Work</div>
+      <h2 class="section-title">Service Areas</h2>
+      <p class="section-sub">Based in Epping, we service Melbourne Metro and the Northern Suburbs corridor. We also take on jobs across broader Victoria — just give us a call.</p>
+      <div class="areas-grid">
+        <div class="area-chip">📍 Epping</div><div class="area-chip">📍 Craigieburn</div>
+        <div class="area-chip">📍 Thomastown</div><div class="area-chip">📍 Bundoora</div>
+        <div class="area-chip">📍 South Morang</div><div class="area-chip">📍 Lalor</div>
+        <div class="area-chip">📍 Reservoir</div><div class="area-chip">📍 Preston</div>
+        <div class="area-chip">📍 Coburg</div><div class="area-chip">📍 Brunswick</div>
+        <div class="area-chip">📍 Northcote</div><div class="area-chip">📍 Melbourne CBD</div>
+        <div class="area-chip">📍 Essendon</div><div class="area-chip">📍 Broadmeadows</div>
+        <div class="area-chip">📍 Campbellfield</div><div class="area-chip">📍 Mill Park</div>
+        <div class="area-chip">📍 Whittlesea</div><div class="area-chip">📍 Doreen</div>
+      </div>
+      <p class="areas-note">Don't see your suburb? Call us on 9308 4779 — we cover all of Victoria.</p>
+    </div>
+    <div class="areas-map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0!2d145.0250!3d-37.6440!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349cfd%3A0xa338267ba5799cf8!2s5%20Trafalgar%20Rd%2C%20Epping%20VIC%203076!5e0!3m2!1sen!2sau!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Odyssey Plumbing location"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-sub">Ready to get started? Reach out to the team at Odyssey Plumbing & Drainage — we respond promptly to all enquiries.</p>
+      <div class="contact-items">
+        <div class="contact-item"><div class="contact-item-icon">📞</div><div><div class="contact-item-label">Phone</div><div class="contact-item-val"><a href="tel:93084779">9308 4779</a></div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">✉️</div><div><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:scheduling@opdgroup.net.au">scheduling@opdgroup.net.au</a></div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Address</div><div class="contact-item-val">5 Trafalgar Road, Epping VIC 3076</div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">🌐</div><div><div class="contact-item-label">Website</div><div class="contact-item-val"><a href="https://opdgroup.net.au" target="_blank">opdgroup.net.au</a></div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">⏰</div><div><div class="contact-item-label">Hours</div><div class="contact-item-val">Mon–Fri 7am–6pm &nbsp;·&nbsp; Sat 8am–4pm<br>24/7 Emergency Callouts Available</div></div></div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="contact-form-title">Send Us a Message</div>
+      <div id="cf-content">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" id="cf-fname"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" id="cf-lname"></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com" id="cf-email"></div>
+        <div class="form-group"><label>Mobile Number</label><input type="tel" placeholder="04XX XXX XXX" id="cf-phone"></div>
+        <div class="form-group"><label>Service Required</label>
+          <select id="cf-service">
+            <option value="">Select a service...</option>
+            <option>General Residential Plumbing</option><option>Commercial Plumbing</option>
+            <option>Drainage</option><option>Hot Water Systems</option>
+            <option>Excavation & Earthmoving</option><option>Emergency Service</option><option>Other / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Briefly describe your job or issue..." id="cf-message"></textarea></div>
+        <button class="form-submit" onclick="submitContact()">Send Enquiry</button>
+      </div>
+      <div class="form-success" id="cf-success">
+        <div class="form-success-icon">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. Our team will be in touch shortly at your provided contact details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey Plumbing & Drainage"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="footer-logo-text">Odyssey <span>P&amp;D</span></span>
+  </div>
+  <p class="footer-text">© 2025 Odyssey Plumbing & Drainage &nbsp;|&nbsp; 5 Trafalgar Road, Epping VIC 3076<br>Licensed Victorian Plumber &nbsp;|&nbsp; Fully Insured &nbsp;|&nbsp; ABN: opdgroup.net.au</p>
+  <div class="footer-links">
+    <a href="#services">Services</a><a href="#areas">Areas</a>
+    <a href="#contact">Contact</a><a href="#" onclick="openModal();return false;">Book Now</a>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="bookingModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-eyebrow">Odyssey Plumbing & Drainage</div>
+    <div class="modal-title">Book a Job</div>
+    <p class="modal-sub">Fill in your details below and we'll confirm your booking promptly.</p>
+    <div id="modal-form">
+      <div class="form-row">
+        <div class="form-group"><label>First Name *</label><input type="text" placeholder="John" id="m-fname"></div>
+        <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" id="m-lname"></div>
+      </div>
+      <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" id="m-email"></div>
+      <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="04XX XXX XXX" id="m-phone"></div>
+      <div class="form-group"><label>Property Address</label><input type="text" placeholder="123 Example St, Suburb VIC" id="m-address"></div>
+      <div class="form-group"><label>Service Required *</label>
+        <select id="m-service">
+          <option value="">Select a service...</option>
+          <option>General Residential Plumbing</option><option>Commercial Plumbing</option>
+          <option>Drainage</option><option>Hot Water Systems</option>
+          <option>Excavation & Earthmoving</option><option>Emergency Service (24/7)</option><option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Preferred Date / Time</label><input type="text" placeholder="e.g. Weekday mornings, ASAP, 15 Jan" id="m-date"></div>
+      <div class="form-group"><label>Job Description *</label><textarea placeholder="Describe the job or issue in as much detail as possible..." id="m-desc"></textarea></div>
+      <button class="form-submit" onclick="submitBooking()">Submit Booking Request</button>
+    </div>
+    <div class="form-success" id="modal-success">
+      <div class="form-success-icon">🎉</div>
+      <h3>Booking Received!</h3>
+      <p>Thanks for booking with Odyssey Plumbing & Drainage.<br>We'll confirm your appointment shortly via email or phone.<br><br>For urgent jobs call us directly on <strong style="color:var(--sky);">9308 4779</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal() { document.getElementById('bookingModal').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal() { document.getElementById('bookingModal').classList.remove('open'); document.body.style.overflow=''; }
+  function submitBooking() {
+    const fields=['m-fname','m-lname','m-email','m-phone','m-service','m-desc'];
+    let ok=true;
+    fields.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){el.style.borderColor='#e05555';ok=false;}else el.style.borderColor=''; });
+    if(!ok)return;
+    document.getElementById('modal-form').style.display='none';
+    document.getElementById('modal-success').style.display='block';
+  }
+  function submitContact() {
+    const fields=['cf-fname','cf-lname','cf-email','cf-phone'];
+    let ok=true;
+    fields.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){el.style.borderColor='#e05555';ok=false;}else el.style.borderColor=''; });
+    if(!ok)return;
+    document.getElementById('cf-content').style.display='none';
+    document.getElementById('cf-success').style.display='block';
+  }
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape')closeModal(); });
+</script>
+</body>
+</html>
