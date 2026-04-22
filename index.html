@@ -182,6 +182,15 @@
   .form-success h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; color: var(--sky); margin-bottom: 0.5rem; }
   .form-success p { color: var(--sky-light); font-size: 0.9rem; line-height: 1.7; }
 
+  /* FLEET BANNER */
+  .fleet-banner { background: var(--navy-dark); padding: 4rem 5%; }
+  .fleet-banner-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+  .fleet-banner-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; text-transform: uppercase; color: white; margin-bottom: 0.8rem; }
+  .fleet-banner-sub { font-size: 0.95rem; color: var(--sky-light); line-height: 1.7; }
+  .fleet-banner-img { border-radius: 10px; overflow: hidden; }
+  .fleet-banner-img img { width: 100%; height: auto; display: block; object-fit: contain; }
+  @media (max-width: 900px) { .fleet-banner-content { grid-template-columns: 1fr; } }
+
   /* CAREERS */
   .careers-section { background: var(--off-white); }
   .careers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 1200px; }
@@ -369,10 +378,10 @@
 </section>
 
 <div class="photo-strip">
-  <div class="photo-strip-item"><img src="Residential.avif" alt="Residential plumbing" loading="lazy"><span class="photo-strip-label">Residential Plumbing</span></div>
-  <div class="photo-strip-item"><img src="PipeInstall.avif" alt="Pipe installation" loading="lazy"><span class="photo-strip-label">Pipe Installation</span></div>
-  <div class="photo-strip-item"><img src="HotWater.avif" alt="Hot water system" loading="lazy"><span class="photo-strip-label">Hot Water Systems</span></div>
-  <div class="photo-strip-item"><img src="Drainage.avif" alt="Drainage works" loading="lazy"><span class="photo-strip-label">Drainage Works</span></div>
+  <div class="photo-strip-item"><img src="image001.png" alt="Odyssey Van Side View" loading="lazy"><span class="photo-strip-label">Zero Emission Fleet</span></div>
+  <div class="photo-strip-item"><img src="image002.png" alt="Odyssey Van Profile" loading="lazy"><span class="photo-strip-label">Professional & Branded</span></div>
+  <div class="photo-strip-item"><img src="image004.png" alt="Odyssey Van Front" loading="lazy"><span class="photo-strip-label">Modern Vehicles</span></div>
+  <div class="photo-strip-item"><img src="image005.png" alt="Odyssey Van Rear" loading="lazy"><span class="photo-strip-label">Odyssey On the Road</span></div>
 </div>
 
 <section class="why-section" id="about">
@@ -390,11 +399,24 @@
     </div>
     <div class="why-right">
       <div class="why-img"><img src="Residential2.avif" alt="Plumber working" loading="lazy"></div>
-      <div class="why-img"><img src="Commercial2.avif" alt="Commercial plumbing" loading="lazy"></div>
+      <div class="why-img"><img src="image004.png" alt="Odyssey Van" loading="lazy"></div>
       <div class="why-img"><img src="drainage2.avif" alt="Drainage work" loading="lazy"></div>
     </div>
   </div>
 </section>
+
+<div class="fleet-banner">
+  <div class="fleet-banner-content">
+    <div class="fleet-banner-text">
+      <div class="section-label" style="color:var(--sky);">Our Fleet</div>
+      <h3 class="fleet-banner-title">Zero Emission. Fully Equipped.</h3>
+      <p class="fleet-banner-sub">Odyssey operates a modern zero emission vehicle fleet — professionally branded, fully stocked and ready to respond across Melbourne Metro and the Northern Suburbs.</p>
+    </div>
+    <div class="fleet-banner-img">
+      <img src="image002.png" alt="Odyssey Plumbing Van" loading="lazy">
+    </div>
+  </div>
+</div>
 
 <section class="areas-section" id="areas">
   <div class="areas-layout">
