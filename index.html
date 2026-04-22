@@ -483,7 +483,7 @@
     <div class="careers-form-wrap">
       <div class="careers-form-title">Apply for a Position</div>
       <p class="careers-form-sub">Complete the form below and our team will be in touch.</p>
-      <div id="careers-form-content">
+      <div id="careers-form-content" style="display:block;">
 
         <div class="careers-section-label">Personal Details</div>
         <div class="form-row">
@@ -551,7 +551,7 @@
         <button type="button" class="careers-submit" onclick="submitCareers()">Submit Application</button>
         <a href="https://forms.gle/qjWA9h6kaodaVs1Q7" target="_blank" class="google-form-btn">📎 Attach Resume via Google Form</a>
       </div>
-      <div class="form-success" id="careers-success">
+      <div class="form-success" id="careers-success" style="display:none;">
         <div class="form-success-icon">🎉</div>
         <h3>Application Received!</h3>
         <p>Thanks for your interest in joining Odyssey Plumbing & Drainage.<br>Our team will review your application and be in touch shortly.<br><br>Don't forget to attach your resume using the Google Form link.</p>
@@ -594,7 +594,7 @@
         <div class="form-group"><label>Message</label><textarea placeholder="Briefly describe your job or issue..." id="cf-message" name="message"></textarea></div>
         <button class="form-submit" onclick="submitContact()">Send Enquiry</button>
       </div>
-      <div class="form-success" id="cf-success">
+      <div class="form-success" id="cf-success" style="display:none;">
         <div class="form-success-icon">✅</div>
         <h3>Message Sent!</h3>
         <p>Thanks for reaching out. Our team will be in touch shortly at your provided contact details.</p>
@@ -643,7 +643,7 @@
       <div class="form-group"><label>Job Description *</label><textarea placeholder="Describe the job or issue in as much detail as possible..." id="m-desc" name="job_description"></textarea></div>
       <button class="form-submit" onclick="submitBooking()">Submit Booking Request</button>
     </div>
-    <div class="form-success" id="modal-success">
+    <div class="form-success" id="modal-success" style="display:none;">
       <div class="form-success-icon">🎉</div>
       <h3>Quote Request Received!</h3>
       <p>Thanks for contacting Odyssey Plumbing & Drainage.<br>We'll be in touch shortly to discuss your requirements.<br><br>For urgent enquiries call us on <strong style="color:var(--sky);">9308 4779</strong>.</p>
@@ -728,6 +728,7 @@
       if(r.ok || r.next) {
         document.getElementById('cf-content').style.display='none';
         document.getElementById('cf-success').style.display='block';
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         btn.textContent = 'Send Enquiry';
         btn.disabled = false;
@@ -810,6 +811,7 @@
       if(r.ok || r.next) {
         document.getElementById('careers-form-content').style.display='none';
         document.getElementById('careers-success').style.display='block';
+        document.getElementById('careers').scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         btn.textContent = 'Submit Application';
         btn.disabled = false;
