@@ -37,6 +37,8 @@
   .nav-links a:hover { color: var(--sky); }
   .nav-cta { background: var(--sky) !important; color: var(--navy-dark) !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 700 !important; }
   .nav-cta:hover { background: var(--sky-light) !important; }
+  .nav-cta-careers { background: transparent !important; color: var(--sky) !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 700 !important; border: 2px solid var(--sky) !important; transition: all 0.2s !important; }
+  .nav-cta-careers:hover { background: var(--sky) !important; color: var(--navy-dark) !important; }
   .mobile-book {
     display: none; background: var(--sky); color: var(--navy-dark); border: none;
     padding: 0.55rem 1.1rem; font-family: 'Barlow', sans-serif; font-weight: 700;
@@ -50,7 +52,7 @@
   .emergency-bar a { color: white; text-decoration: none; }
 
   /* HERO */
-  .hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 220px 5% 80px; overflow: hidden; }
+  .hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 160px 5% 80px; overflow: hidden; }
   .hero-bg {
     position: absolute; inset: 0;
     background-image: url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600&auto=format&fit=crop&q=80');
@@ -180,6 +182,37 @@
   .form-success h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; color: var(--sky); margin-bottom: 0.5rem; }
   .form-success p { color: var(--sky-light); font-size: 0.9rem; line-height: 1.7; }
 
+  /* CAREERS */
+  .careers-section { background: var(--off-white); }
+  .careers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 1200px; }
+  .careers-intro { margin-bottom: 2rem; }
+  .careers-perks { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .careers-perk { display: flex; gap: 1rem; align-items: flex-start; }
+  .careers-perk-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(61,184,232,0.12); border: 1px solid rgba(61,184,232,0.3); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .careers-perk-title { font-weight: 700; color: var(--navy-dark); font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .careers-perk-text { font-size: 0.85rem; color: var(--text-mid); line-height: 1.5; }
+  .careers-form-wrap { background: white; border: 1px solid var(--light-gray); border-radius: 10px; padding: 2rem; box-shadow: 0 4px 20px rgba(26,58,92,0.07); }
+  .careers-form-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; color: var(--navy-dark); margin-bottom: 0.3rem; }
+  .careers-form-sub { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 1.5rem; }
+  .careers-section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sky); margin: 1.2rem 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--light-gray); }
+  .careers-section .form-group label { color: var(--text-mid); }
+  .careers-section .form-group input, .careers-section .form-group select, .careers-section .form-group textarea { background: var(--off-white); border: 1px solid var(--light-gray); border-radius: 5px; padding: 0.7rem 0.9rem; font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: var(--text-dark); outline: none; transition: border-color 0.2s; width: 100%; }
+  .careers-section .form-group input:focus, .careers-section .form-group select:focus, .careers-section .form-group textarea:focus { border-color: var(--sky); background: white; }
+  .careers-section .form-group input::placeholder, .careers-section .form-group textarea::placeholder { color: var(--text-light); }
+  .ticket-entry { background: var(--off-white); border: 1px solid var(--light-gray); border-radius: 6px; padding: 1rem; margin-bottom: 0.75rem; position: relative; }
+  .ticket-remove { position: absolute; top: 0.6rem; right: 0.6rem; background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 1.1rem; line-height: 1; }
+  .ticket-remove:hover { color: var(--emergency); }
+  .btn-add-ticket { background: transparent; border: 1px dashed var(--sky); color: var(--sky); padding: 0.6rem 1rem; border-radius: 5px; font-family: 'Barlow', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 0.5rem; transition: all 0.2s; }
+  .btn-add-ticket:hover { background: rgba(61,184,232,0.08); }
+  .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem; margin-top: 0.4rem; }
+  .expertise-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.83rem; color: var(--text-mid); }
+  .expertise-item input[type="checkbox"] { accent-color: var(--sky); width: 15px; height: 15px; flex-shrink: 0; }
+  .careers-submit { width: 100%; background: var(--navy-dark); color: white; border: none; padding: 1rem; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 5px; cursor: pointer; margin-top: 1rem; transition: all 0.2s; }
+  .careers-submit:hover { background: var(--navy); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(15,37,64,0.2); }
+  .google-form-btn { display: flex; align-items: center; justify-content: center; gap: 0.75rem; width: 100%; background: var(--sky); color: var(--navy-dark); border: none; padding: 1rem; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 5px; cursor: pointer; margin-top: 0.75rem; transition: all 0.2s; text-decoration: none; }
+  .google-form-btn:hover { background: var(--sky-light); transform: translateY(-1px); }
+  @media (max-width: 900px) { .careers-grid { grid-template-columns: 1fr; } }
+
   /* FOOTER */
   footer { background: #060d17; padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { display: flex; align-items: center; }
@@ -226,7 +259,7 @@
 </head>
 <body>
 
-<div class="emergency-bar">🚨 24/7 Emergency Plumbing Available — Call Now: <a href="tel:93084779">9308 4779</a></div>
+
 
 <nav>
   <a class="nav-logo" href="#home">
@@ -238,10 +271,12 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#areas">Service Areas</a></li>
+    <li><a href="#careers">Careers</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Book Now</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Request a Quote</a></li>
+    <li><a href="https://forms.gle/qjWA9h6kaodaVs1Q7" target="_blank" class="nav-cta-careers">Apply for a Job</a></li>
   </ul>
-  <button class="mobile-book" onclick="openModal()">Book Now</button>
+  <button class="mobile-book" onclick="openModal()">Request a Quote</button>
 </nav>
 
 <section class="hero" id="home">
@@ -250,14 +285,14 @@
   <div class="hero-grid">
     <div>
       <div class="hero-eyebrow">Melbourne's Trusted Plumbing Experts</div>
-      <h1>Odyssey Plumbing &amp; Drainage <span>Solutions</span> Across Melbourne &amp; Northern Suburbs</h1>
-      <p class="hero-sub">Residential and commercial plumbing, drainage, excavation and earthmoving across Melbourne Metro and the Northern Suburbs. Licensed. Insured. Available 24/7.</p>
+      <h1>Reliable. Responsive. <span>Built for the Complex Jobs Others Won't Touch.</span></h1>
+      <p class="hero-sub">Residential and commercial plumbing, drainage, excavation and earthmoving across Melbourne Metro and the Northern Suburbs. Licensed. Fully insured. Trusted by Melbourne's leading commercial operators.</p>
       <div class="hero-buttons">
-        <button class="btn-primary" onclick="openModal()">Book a Job</button>
+        <button class="btn-primary" onclick="openModal()">Request a Quote</button>
         <a class="btn-outline" href="tel:93084779">📞 Call 9308 4779</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><span class="hero-stat-num">24/7</span><span class="hero-stat-label">Emergency</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">MELB</span><span class="hero-stat-label">Metro & North</span></div>
         <div class="hero-stat"><span class="hero-stat-num">VIC</span><span class="hero-stat-label">Licensed</span></div>
         <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Insured</span></div>
       </div>
@@ -265,7 +300,7 @@
     <div class="hero-right">
       <div class="trust-card"><div class="trust-icon">🛡️</div><div><div class="trust-title">Licensed Victorian Plumber</div><div class="trust-desc">Fully accredited with the Victorian Building Authority.</div></div></div>
       <div class="trust-card"><div class="trust-icon">✅</div><div><div class="trust-title">Fully Insured</div><div class="trust-desc">Complete public liability and professional indemnity on every job.</div></div></div>
-      <div class="trust-card"><div class="trust-icon">🚨</div><div><div class="trust-title">24/7 Emergency Available</div><div class="trust-desc">Burst pipes, blocked drains, no hot water — we respond fast.</div></div></div>
+      <div class="trust-card"><div class="trust-icon">⚡</div><div><div class="trust-title">Fast Response Times</div><div class="trust-desc">Prompt attendance on every job across Melbourne Metro and Northern Suburbs.</div></div></div>
       <div class="trust-card"><div class="trust-icon">📍</div><div><div class="trust-title">Melbourne Metro & Northern Suburbs</div><div class="trust-desc">Based in Epping — servicing all metro and northern corridor.</div></div></div>
     </div>
   </div>
@@ -274,7 +309,7 @@
 <div class="phone-banner">
   <span class="phone-banner-text">Need a plumber today?</span>
   <a class="phone-banner-num" href="tel:93084779">📞 9308 4779</a>
-  <button class="phone-banner-btn" onclick="openModal()">Book Online</button>
+  <button class="phone-banner-btn" onclick="openModal()">Request a Quote</button>
 </div>
 
 <section class="services-section" id="services">
@@ -329,15 +364,7 @@
         <ul class="service-list"><li>Trenching for pipe installation</li><li>Industrial & commercial site preparation</li><li>Site clearance and grading</li><li>Underground service location</li><li>Post-work reinstatement</li></ul>
       </div>
     </div>
-    <div class="service-card emergency">
-      <img class="service-card-img" src="Emergency.avif" alt="Emergency Plumbing" loading="lazy">
-      <div class="service-card-body">
-        <span class="service-icon">🚨</span>
-        <div class="service-name">24/7 Emergency Services</div>
-        <p class="service-desc">Plumbing emergencies don't wait — neither do we. Fast response across Melbourne.</p>
-        <ul class="service-list"><li>Burst and leaking pipes</li><li>Blocked toilets and overflows</li><li>No hot water emergencies</li><li>Sewage backups</li></ul>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -357,7 +384,7 @@
       <div class="why-features">
         <div class="why-feature"><div class="why-feature-icon">🛡️</div><div><div class="why-feature-title">Licensed & Accredited</div><div class="why-feature-text">All work carried out by fully licensed Victorian plumbers, registered with the Victorian Building Authority.</div></div></div>
         <div class="why-feature"><div class="why-feature-icon">💰</div><div><div class="why-feature-title">Upfront, Honest Pricing</div><div class="why-feature-text">No hidden fees. We provide clear quotes before starting any work so you always know what you're paying.</div></div></div>
-        <div class="why-feature"><div class="why-feature-icon">⚡</div><div><div class="why-feature-title">Fast Response Times</div><div class="why-feature-text">Prompt attendance on every job — especially for urgent and emergency callouts across the metro area.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon">⚡</div><div><div class="why-feature-title">Fast Response Times</div><div class="why-feature-text">Prompt attendance on every job — we understand that delays cost our clients time and money.</div></div></div>
         <div class="why-feature"><div class="why-feature-icon">🏠</div><div><div class="why-feature-title">Residential & Commercial</div><div class="why-feature-text">From single-dwelling repairs to large manufacturing fitouts and commercial projects — we have the equipment and expertise to deliver.</div></div></div>
       </div>
     </div>
@@ -394,6 +421,123 @@
   </div>
 </section>
 
+<section class="careers-section" id="careers">
+  <div class="careers-grid">
+    <div class="careers-intro">
+      <div class="section-label">Join Our Team</div>
+      <h2 class="section-title">Work With Odyssey</h2>
+      <p class="section-sub">We're always looking for skilled, reliable plumbers to join our growing team. Whether you're a qualified tradesperson or an apprentice looking to build your career, we'd love to hear from you.</p>
+      <div class="careers-perks">
+        <div class="careers-perk">
+          <div class="careers-perk-icon">🚐</div>
+          <div>
+            <div class="careers-perk-title">Zero Emission Fleet</div>
+            <div class="careers-perk-text">Work from modern, clean electric vehicles across Melbourne Metro and the Northern Suburbs.</div>
+          </div>
+        </div>
+        <div class="careers-perk">
+          <div class="careers-perk-icon">🏗️</div>
+          <div>
+            <div class="careers-perk-title">Varied & Challenging Work</div>
+            <div class="careers-perk-text">From residential repairs to large-scale commercial and manufacturing fitouts — no two days are the same.</div>
+          </div>
+        </div>
+        <div class="careers-perk">
+          <div class="careers-perk-icon">📈</div>
+          <div>
+            <div class="careers-perk-title">Career Growth</div>
+            <div class="careers-perk-text">We invest in our people. Apprentices and experienced tradespeople alike are supported to grow their skills and career.</div>
+          </div>
+        </div>
+        <div class="careers-perk">
+          <div class="careers-perk-icon">🤝</div>
+          <div>
+            <div class="careers-perk-title">Professional Team Culture</div>
+            <div class="careers-perk-text">Join a team that values quality workmanship, reliability and getting the job done right the first time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="careers-form-wrap">
+      <div class="careers-form-title">Apply for a Position</div>
+      <p class="careers-form-sub">Complete the form below and our team will be in touch.</p>
+      <div id="careers-form-content">
+
+        <div class="careers-section-label">Personal Details</div>
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" placeholder="John" id="c-fname"></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" id="c-lname"></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" id="c-email"></div>
+        <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="04XX XXX XXX" id="c-phone"></div>
+        <div class="form-group"><label>Date of Birth</label><input type="date" id="c-dob"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Home Address</label><input type="text" placeholder="123 Example St" id="c-address"></div>
+          <div class="form-group"><label>Postcode</label><input type="text" placeholder="3000" id="c-postcode"></div>
+        </div>
+
+        <div class="careers-section-label">Licence & Compliance</div>
+        <div class="form-row">
+          <div class="form-group"><label>Driver's Licence Number</label><input type="text" placeholder="Licence number" id="c-dlnum"></div>
+          <div class="form-group"><label>Expiry Date</label><input type="date" id="c-dlexp"></div>
+        </div>
+        <div class="form-group"><label>Plumbers Registration / Student Number</label><input type="text" placeholder="Registration or student number" id="c-plumreg"></div>
+        <div class="form-group"><label>White Card Number</label><input type="text" placeholder="White card number" id="c-whitecard"></div>
+
+        <div class="careers-section-label">Tickets Register <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.75rem;color:var(--text-light);">(add as many as needed)</span></div>
+        <div id="tickets-container">
+          <div class="ticket-entry">
+            <button type="button" class="ticket-remove" onclick="removeTicket(this)">✕</button>
+            <div class="form-row">
+              <div class="form-group"><label>Ticket / Licence Type</label><input type="text" placeholder="e.g. EWP, Forklift" name="ticket_type[]"></div>
+              <div class="form-group"><label>Licence Number</label><input type="text" placeholder="Licence number" name="ticket_num[]"></div>
+            </div>
+            <div class="form-group"><label>Expiry Date</label><input type="date" name="ticket_exp[]"></div>
+          </div>
+        </div>
+        <button type="button" class="btn-add-ticket" onclick="addTicket()">+ Add Another Ticket</button>
+
+        <div class="careers-section-label">Optional Information</div>
+        <div class="form-group"><label>Years of Experience</label>
+          <select id="c-experience">
+            <option value="">Select...</option>
+            <option>Currently studying / Apprentice</option>
+            <option>1–2 years</option>
+            <option>3–5 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Areas of Expertise <span style="font-weight:400;text-transform:none;">(select all that apply)</span></label>
+          <div class="expertise-grid">
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="New Home Plumbing"> New Home Plumbing</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="Caravan Plumbing"> Caravan Plumbing</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="Commercial"> Commercial</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="Maintenance"> Maintenance</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="Drainage"> Drainage</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="Rough Ins"> Rough Ins</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="Stack Work"> Stack Work</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="Fit Offs"> Fit Offs</label>
+            <label class="expertise-item"><input type="checkbox" name="expertise" value="CCTV"> CCTV</label>
+          </div>
+        </div>
+        <div class="form-group"><label>Resume Upload</label>
+          <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.5rem;">Please use the Google Form link below to attach your resume.</p>
+        </div>
+
+        <button type="button" class="careers-submit" onclick="submitCareers()">Submit Application</button>
+        <a href="https://forms.gle/qjWA9h6kaodaVs1Q7" target="_blank" class="google-form-btn">📎 Attach Resume via Google Form</a>
+      </div>
+      <div class="form-success" id="careers-success">
+        <div class="form-success-icon">🎉</div>
+        <h3>Application Received!</h3>
+        <p>Thanks for your interest in joining Odyssey Plumbing & Drainage.<br>Our team will review your application and be in touch shortly.<br><br>Don't forget to attach your resume using the Google Form link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="contact-section" id="contact">
   <div class="contact-grid">
     <div>
@@ -405,7 +549,7 @@
         <div class="contact-item"><div class="contact-item-icon">✉️</div><div><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:scheduling@opdgroup.net.au">scheduling@opdgroup.net.au</a></div></div></div>
         <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Address</div><div class="contact-item-val">5 Trafalgar Road, Epping VIC 3076</div></div></div>
         <div class="contact-item"><div class="contact-item-icon">🌐</div><div><div class="contact-item-label">Website</div><div class="contact-item-val"><a href="https://opdgroup.net.au" target="_blank">opdgroup.net.au</a></div></div></div>
-        <div class="contact-item"><div class="contact-item-icon">⏰</div><div><div class="contact-item-label">Hours</div><div class="contact-item-val">Mon–Fri 7am–6pm &nbsp;·&nbsp; Sat 8am–4pm<br>24/7 Emergency Callouts Available</div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">⏰</div><div><div class="contact-item-label">Hours</div><div class="contact-item-val">Mon–Fri 7am–6pm &nbsp;·&nbsp; Sat 8am–4pm</div></div></div>
       </div>
     </div>
     <div class="contact-form-wrap">
@@ -422,7 +566,7 @@
             <option value="">Select a service...</option>
             <option>General Residential Plumbing</option><option>Commercial Plumbing</option>
             <option>Drainage</option><option>Hot Water Systems</option>
-            <option>Excavation & Earthmoving</option><option>Emergency Service</option><option>Other / Not Sure</option>
+            <option>Excavation & Earthmoving</option><option>Other / Not Sure</option>
           </select>
         </div>
         <div class="form-group"><label>Message</label><textarea placeholder="Briefly describe your job or issue..." id="cf-message" name="message"></textarea></div>
@@ -446,7 +590,8 @@
   <p class="footer-text">© 2025 Odyssey Plumbing & Drainage Pty Ltd &nbsp;|&nbsp; 5 Trafalgar Road, Epping VIC 3076<br>Licensed Victorian Plumber &nbsp;|&nbsp; Fully Insured &nbsp;|&nbsp; ABN: 70 674 568 113</p>
   <div class="footer-links">
     <a href="#services">Services</a><a href="#areas">Areas</a>
-    <a href="#contact">Contact</a><a href="#" onclick="openModal();return false;">Book Now</a>
+    <a href="#careers">Careers</a><a href="#contact">Contact</a>
+    <a href="#" onclick="openModal();return false;">Request a Quote</a>
   </div>
 </footer>
 
@@ -454,9 +599,9 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-eyebrow">Odyssey Plumbing & Drainage</div>
-    <div class="modal-title">Book a Job</div>
+    <div class="modal-title">Request a Quote</div>
     <div id="modal-form">
-      <p class="modal-sub">Fill in your details below and we'll confirm your booking promptly.</p>
+      <p class="modal-sub">Fill in your details below and we'll get back to you promptly.</p>
       <div class="form-row">
         <div class="form-group"><label>First Name *</label><input type="text" placeholder="John" id="m-fname" name="first_name"></div>
         <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" id="m-lname" name="last_name"></div>
@@ -469,7 +614,7 @@
           <option value="">Select a service...</option>
           <option>General Residential Plumbing</option><option>Commercial Plumbing</option>
           <option>Drainage</option><option>Hot Water Systems</option>
-          <option>Excavation & Earthmoving</option><option>Emergency Service (24/7)</option><option>Other / Not Sure</option>
+          <option>Excavation & Earthmoving</option><option>Other / Not Sure</option>
         </select>
       </div>
       <div class="form-group"><label>Preferred Date / Time</label><input type="text" placeholder="e.g. Weekday mornings, ASAP, 15 Jan" id="m-date" name="preferred_date"></div>
@@ -478,8 +623,8 @@
     </div>
     <div class="form-success" id="modal-success">
       <div class="form-success-icon">🎉</div>
-      <h3>Booking Received!</h3>
-      <p>Thanks for booking with Odyssey Plumbing & Drainage.<br>We'll confirm your appointment shortly via email or phone.<br><br>For urgent jobs call us directly on <strong style="color:var(--sky);">9308 4779</strong>.</p>
+      <h3>Quote Request Received!</h3>
+      <p>Thanks for contacting Odyssey Plumbing & Drainage.<br>We'll be in touch shortly to discuss your requirements.<br><br>For urgent enquiries call us on <strong style="color:var(--sky);">9308 4779</strong>.</p>
     </div>
   </div>
 </div>
@@ -575,6 +720,86 @@
   }
 
   document.addEventListener('keydown', e=>{ if(e.key==='Escape')closeModal(); });
+
+  function addTicket() {
+    const container = document.getElementById('tickets-container');
+    const div = document.createElement('div');
+    div.className = 'ticket-entry';
+    div.innerHTML = `
+      <button type="button" class="ticket-remove" onclick="removeTicket(this)">✕</button>
+      <div class="form-row">
+        <div class="form-group"><label>Ticket / Licence Type</label><input type="text" placeholder="e.g. EWP, Forklift" name="ticket_type[]"></div>
+        <div class="form-group"><label>Licence Number</label><input type="text" placeholder="Licence number" name="ticket_num[]"></div>
+      </div>
+      <div class="form-group"><label>Expiry Date</label><input type="date" name="ticket_exp[]"></div>`;
+    container.appendChild(div);
+  }
+
+  function removeTicket(btn) {
+    const entries = document.querySelectorAll('.ticket-entry');
+    if(entries.length > 1) btn.parentElement.remove();
+  }
+
+  function submitCareers() {
+    const required = ['c-fname','c-lname','c-email','c-phone'];
+    let ok = true;
+    required.forEach(id => {
+      const el = document.getElementById(id);
+      if(!el.value.trim()) { el.style.borderColor='#e05555'; ok=false; } else el.style.borderColor='';
+    });
+    if(!ok) return;
+
+    const btn = document.querySelector('.careers-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const expertise = [...document.querySelectorAll('input[name="expertise"]:checked')].map(cb => cb.value).join(', ');
+    const tickets = [...document.querySelectorAll('.ticket-entry')].map((t,i) => {
+      const type = t.querySelector('input[name="ticket_type[]"]')?.value || '';
+      const num = t.querySelector('input[name="ticket_num[]"]')?.value || '';
+      const exp = t.querySelector('input[name="ticket_exp[]"]')?.value || '';
+      return type ? `Ticket ${i+1}: ${type} | ${num} | Expires: ${exp}` : null;
+    }).filter(Boolean).join('\n');
+
+    const data = {
+      first_name: document.getElementById('c-fname').value,
+      last_name: document.getElementById('c-lname').value,
+      email: document.getElementById('c-email').value,
+      mobile: document.getElementById('c-phone').value,
+      date_of_birth: document.getElementById('c-dob').value,
+      address: document.getElementById('c-address').value,
+      postcode: document.getElementById('c-postcode').value,
+      drivers_licence: document.getElementById('c-dlnum').value,
+      licence_expiry: document.getElementById('c-dlexp').value,
+      plumbers_registration: document.getElementById('c-plumreg').value,
+      white_card: document.getElementById('c-whitecard').value,
+      tickets: tickets || 'None provided',
+      years_experience: document.getElementById('c-experience').value,
+      areas_of_expertise: expertise || 'None selected'
+    };
+
+    fetch('https://formspree.io/f/mjgjanej', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(r => {
+      if(r.ok || r.next) {
+        document.getElementById('careers-form-content').style.display='none';
+        document.getElementById('careers-success').style.display='block';
+      } else {
+        btn.textContent = 'Submit Application';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or call us on 9308 4779.');
+      }
+    })
+    .catch(() => {
+      btn.textContent = 'Submit Application';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call us on 9308 4779.');
+    });
+  }
 </script>
 </body>
 </html>
