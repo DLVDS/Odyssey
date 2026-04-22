@@ -218,8 +218,6 @@
   .expertise-item input[type="checkbox"] { accent-color: var(--sky); width: 15px; height: 15px; flex-shrink: 0; }
   .careers-submit { width: 100%; background: var(--navy-dark); color: white; border: none; padding: 1rem; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 5px; cursor: pointer; margin-top: 1rem; transition: all 0.2s; }
   .careers-submit:hover { background: var(--navy); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(15,37,64,0.2); }
-  .google-form-btn { display: flex; align-items: center; justify-content: center; gap: 0.75rem; width: 100%; background: var(--sky); color: var(--navy-dark); border: none; padding: 1rem; font-family: 'Barlow', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 5px; cursor: pointer; margin-top: 0.75rem; transition: all 0.2s; text-decoration: none; }
-  .google-form-btn:hover { background: var(--sky-light); transform: translateY(-1px); }
   @media (max-width: 900px) { .careers-grid { grid-template-columns: 1fr; } }
 
   /* FOOTER */
@@ -283,7 +281,7 @@
     <li><a href="#careers">Careers</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#" class="nav-cta" onclick="openModal();return false;">Request a Quote</a></li>
-    <li><a href="https://forms.gle/qjWA9h6kaodaVs1Q7" target="_blank" class="nav-cta-careers">Apply for a Job</a></li>
+    <li><a href="#careers" class="nav-cta-careers">Apply for a Job</a></li>
   </ul>
   <button class="mobile-book" onclick="openModal()">Request a Quote</button>
 </nav>
@@ -544,17 +542,18 @@
             <label class="expertise-item"><input type="checkbox" name="expertise" value="CCTV"> CCTV</label>
           </div>
         </div>
-        <div class="form-group"><label>Resume Upload</label>
-          <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:0.5rem;">Please use the Google Form link below to attach your resume.</p>
+        <div class="form-group">
+          <label>Resume Upload <span style="font-weight:400;text-transform:none;letter-spacing:0;">(PDF, DOC or DOCX — max 5MB)</span></label>
+          <input type="file" id="c-resume" name="resume" accept=".pdf,.doc,.docx" style="padding:0.5rem;">
+          <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.3rem;">Resume upload will be available once the account is upgraded. You may still submit your application without it.</p>
         </div>
 
         <button type="button" class="careers-submit" onclick="submitCareers()">Submit Application</button>
-        <a href="https://forms.gle/qjWA9h6kaodaVs1Q7" target="_blank" class="google-form-btn">📎 Attach Resume via Google Form</a>
       </div>
       <div class="form-success" id="careers-success" style="display:none;">
         <div class="form-success-icon">🎉</div>
         <h3>Application Received!</h3>
-        <p>Thanks for your interest in joining Odyssey Plumbing & Drainage.<br>Our team will review your application and be in touch shortly.<br><br>Don't forget to attach your resume using the Google Form link.</p>
+        <p>Thanks for your interest in joining Odyssey Plumbing & Drainage.<br>Our team will review your application and be in touch shortly.</p>
       </div>
     </div>
   </div>
