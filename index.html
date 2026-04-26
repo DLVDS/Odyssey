@@ -21,29 +21,93 @@
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: var(--navy-dark); padding: 0 2%;
+    background: var(--white); padding: 0 2%;
     display: flex; align-items: center; justify-content: space-between;
-    height: 100px; box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    height: 100px; box-shadow: 0 2px 20px rgba(0,0,0,0.15);
   }
   .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 0; flex-shrink: 0; }
-  .nav-logo img { height: 80px; object-fit: contain; display: block; }
+  .nav-logo img { height: 88px; object-fit: contain; display: block; }
   .nav-logo-text {
     display: none; font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.4rem; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 0.03em;
+    font-size: 1.4rem; font-weight: 800; color: var(--navy-dark); text-transform: uppercase; letter-spacing: 0.03em;
   }
   .nav-logo-text span { color: var(--sky); }
-  .nav-links { display: flex; align-items: center; gap: 1rem; list-style: none; flex-wrap: nowrap; }
-  .nav-links a { color: var(--sky-light); text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
-  .nav-links a:hover { color: var(--sky); }
-  .nav-cta { background: var(--sky) !important; color: var(--navy-dark) !important; padding: 0.45rem 0.9rem; border-radius: 4px; font-weight: 700 !important; white-space: nowrap; }
-  .nav-cta:hover { background: var(--sky-light) !important; }
-  .nav-cta-careers { background: transparent !important; color: var(--sky) !important; padding: 0.45rem 0.9rem; border-radius: 4px; font-weight: 700 !important; border: 2px solid var(--sky) !important; transition: all 0.2s !important; white-space: nowrap; }
-  .nav-cta-careers:hover { background: var(--sky) !important; color: var(--navy-dark) !important; }
-  .mobile-book {
-    display: none; background: var(--sky); color: var(--navy-dark); border: none;
-    padding: 0.55rem 1.1rem; font-family: 'Barlow', sans-serif; font-weight: 700;
-    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 4px; cursor: pointer;
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 0; right: 0;
+    background: var(--white);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    list-style: none;
+    padding: 1rem 2%;
+    gap: 0;
+    z-index: 999;
+    border-top: 3px solid var(--sky);
   }
+  .nav-links.open { display: flex; }
+  .nav-links li { border-bottom: 1px solid var(--light-gray); }
+  .nav-links li:last-child { border-bottom: none; }
+  .nav-links a {
+    display: block;
+    padding: 0.85rem 1rem;
+    color: var(--navy-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-links a:hover { color: var(--sky); background: var(--off-white); }
+  .nav-cta {
+    display: block !important;
+    margin: 0.5rem 1rem !important;
+    background: var(--sky) !important;
+    color: var(--navy-dark) !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+  }
+  .nav-cta:hover { background: var(--sky-light) !important; }
+  .nav-cta-careers {
+    display: block !important;
+    margin: 0.5rem 1rem 0.75rem !important;
+    background: transparent !important;
+    color: var(--navy-dark) !important;
+    padding: 0.7rem 1rem !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    border: 2px solid var(--navy-dark) !important;
+    text-align: center !important;
+  }
+  .nav-cta-careers:hover { background: var(--navy-dark) !important; color: var(--white) !important; }
+
+  /* Hamburger button */
+  .hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto;
+  }
+  .hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--navy-dark);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  .mobile-book { display: none; }
   .emergency-bar {
     background: var(--emergency); text-align: center; padding: 0.45rem;
     font-size: 0.82rem; font-weight: 700; color: white; letter-spacing: 0.04em;
@@ -274,16 +338,18 @@
       onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <span class="nav-logo-text">Odyssey <span>Plumbing &amp; Drainage</span></span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#areas">Service Areas</a></li>
-    <li><a href="#careers">Careers</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Request a Quote</a></li>
-    <li><a href="#careers" class="nav-cta-careers">Apply for a Job</a></li>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#areas" onclick="closeMenu()">Service Areas</a></li>
+    <li><a href="#careers" onclick="closeMenu()">Careers</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    <li><a href="#" class="nav-cta" onclick="closeMenu();openModal();return false;">Book a Job</a></li>
+    <li><a href="#careers" class="nav-cta-careers" onclick="closeMenu()">Apply for a Job</a></li>
   </ul>
-  <button class="mobile-book" onclick="openModal()">Request a Quote</button>
 </nav>
 
 <section class="hero" id="home">
@@ -292,20 +358,20 @@
   <div class="hero-grid">
     <div>
       <div class="hero-eyebrow">Melbourne's Trusted Plumbing Experts</div>
-      <h1>Reliable. Responsive. <span>Built for the Complex Jobs Others Won't Touch.</span></h1>
+      <h1>We Never Turn Our Back <span>On Any Job.</span></h1>
       <p class="hero-sub">Residential, commercial and civil plumbing, drainage, excavation and earthmoving across Melbourne Metro and the Northern Suburbs. Licensed. Fully insured. Trusted by Melbourne's leading commercial operators.</p>
       <div class="hero-buttons">
-        <button class="btn-primary" onclick="openModal()">Request a Quote</button>
+        <button class="btn-primary" onclick="openModal()">Book a Job</button>
         <a class="btn-outline" href="tel:93084779">📞 Call 9308 4779</a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><span class="hero-stat-num">MELB</span><span class="hero-stat-label">Metro & North</span></div>
-        <div class="hero-stat"><span class="hero-stat-num">VIC</span><span class="hero-stat-label">Licensed</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Jurisdictions</span></div>
         <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Insured</span></div>
       </div>
     </div>
     <div class="hero-right">
-      <div class="trust-card"><div class="trust-icon">🛡️</div><div><div class="trust-title">Licensed Victorian Plumber</div><div class="trust-desc">Fully accredited with the Victorian Building Authority.</div></div></div>
+      <div class="trust-card"><div class="trust-icon">🛡️</div><div><div class="trust-title">Licensed: VIC · NSW · QLD · NZ</div><div class="trust-desc">Fully accredited across Victoria, New South Wales, Queensland and New Zealand.</div></div></div>
       <div class="trust-card"><div class="trust-icon">✅</div><div><div class="trust-title">Fully Insured</div><div class="trust-desc">Complete public liability and professional indemnity on every job.</div></div></div>
       <div class="trust-card"><div class="trust-icon">⚡</div><div><div class="trust-title">Fast Response Times</div><div class="trust-desc">Prompt attendance on every job across Melbourne Metro and Northern Suburbs.</div></div></div>
       <div class="trust-card"><div class="trust-icon">📍</div><div><div class="trust-title">Melbourne Metro & Northern Suburbs</div><div class="trust-desc">Based in Epping — servicing all metro and northern corridor.</div></div></div>
@@ -316,7 +382,7 @@
 <div class="phone-banner">
   <span class="phone-banner-text">Need a plumber today?</span>
   <a class="phone-banner-num" href="tel:93084779">📞 9308 4779</a>
-  <button class="phone-banner-btn" onclick="openModal()">Request a Quote</button>
+  <button class="phone-banner-btn" onclick="openModal()">Book a Job</button>
 </div>
 
 <section class="services-section" id="services">
@@ -389,11 +455,11 @@
       <h2 class="section-title">Professionals You Can Rely On</h2>
       <p class="section-sub">Odyssey Plumbing & Drainage is a trusted name across Melbourne Metro and the Northern Suburbs. We combine residential, commercial and civil expertise with honest, transparent service on every job.</p>
       <div class="why-features">
-        <div class="why-feature"><div class="why-feature-icon">🛡️</div><div><div class="why-feature-title">Licensed & Accredited</div><div class="why-feature-text">All work carried out by fully licensed Victorian plumbers, registered with the Victorian Building Authority.</div></div></div>
-        <div class="why-feature"><div class="why-feature-icon">💰</div><div><div class="why-feature-title">Upfront, Honest Pricing</div><div class="why-feature-text">No hidden fees. We provide clear quotes before starting any work so you always know what you're paying.</div></div></div>
-        <div class="why-feature"><div class="why-feature-icon">⚡</div><div><div class="why-feature-title">Fast Response Times</div><div class="why-feature-text">Prompt attendance on every job — we understand that delays cost our clients time and money.</div></div></div>
-        <div class="why-feature"><div class="why-feature-icon">🧠</div><div><div class="why-feature-title">Problem-Solving Approach</div><div class="why-feature-text">We don't just fix pipes — we analyse, diagnose and solve. Our team tackles complex challenges others walk away from.</div></div></div>
-        <div class="why-feature"><div class="why-feature-icon">🏠</div><div><div class="why-feature-title">Residential, Commercial & Civil</div><div class="why-feature-text">From single-dwelling repairs to large manufacturing fitouts and civil works — we have the equipment and expertise to deliver.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:28px;height:28px;object-fit:contain;"></div><div><div class="why-feature-title">Licensed Across VIC · NSW · QLD · NZ</div><div class="why-feature-text">All work carried out by fully licensed plumbers, accredited across Victoria, New South Wales, Queensland and New Zealand.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:28px;height:28px;object-fit:contain;"></div><div><div class="why-feature-title">Upfront, Honest Pricing</div><div class="why-feature-text">No hidden fees. We provide clear quotes before starting any work so you always know what you're paying.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:28px;height:28px;object-fit:contain;"></div><div><div class="why-feature-title">Fast Response Times</div><div class="why-feature-text">Prompt attendance on every job — we understand that delays cost our clients time and money.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:28px;height:28px;object-fit:contain;"></div><div><div class="why-feature-title">Problem-Solving Approach</div><div class="why-feature-text">We don't just fix pipes — we analyse, diagnose and solve. Our team tackles complex challenges others walk away from.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:28px;height:28px;object-fit:contain;"></div><div><div class="why-feature-title">Residential, Commercial & Civil</div><div class="why-feature-text">From single-dwelling repairs to large manufacturing fitouts and civil works — we have the equipment and expertise to deliver.</div></div></div>
       </div>
     </div>
     <div class="why-right">
@@ -450,32 +516,20 @@
       <p class="section-sub">We're always looking for skilled, reliable plumbers to join our growing team. Whether you're a qualified tradesperson or an apprentice looking to build your career, we'd love to hear from you.</p>
       <div class="careers-perks">
         <div class="careers-perk">
-          <div class="careers-perk-icon">🚐</div>
-          <div>
-            <div class="careers-perk-title">Zero Emission Fleet</div>
-            <div class="careers-perk-text">Work from modern, clean electric vehicles across Melbourne Metro and the Northern Suburbs.</div>
-          </div>
+          <div class="careers-perk-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:26px;height:26px;object-fit:contain;"></div>
+          <div><div class="careers-perk-title">Zero Emission Fleet</div><div class="careers-perk-text">Work from modern, clean electric vehicles across Melbourne Metro and the Northern Suburbs.</div></div>
         </div>
         <div class="careers-perk">
-          <div class="careers-perk-icon">🏗️</div>
-          <div>
-            <div class="careers-perk-title">Varied & Challenging Work</div>
-            <div class="careers-perk-text">From residential repairs to large-scale commercial and manufacturing fitouts — no two days are the same.</div>
-          </div>
+          <div class="careers-perk-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:26px;height:26px;object-fit:contain;"></div>
+          <div><div class="careers-perk-title">Varied & Challenging Work</div><div class="careers-perk-text">From residential repairs to large-scale commercial and manufacturing fitouts — no two days are the same.</div></div>
         </div>
         <div class="careers-perk">
-          <div class="careers-perk-icon">📈</div>
-          <div>
-            <div class="careers-perk-title">Career Growth</div>
-            <div class="careers-perk-text">We invest in our people. Apprentices and experienced tradespeople alike are supported to grow their skills and career.</div>
-          </div>
+          <div class="careers-perk-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:26px;height:26px;object-fit:contain;"></div>
+          <div><div class="careers-perk-title">Career Growth</div><div class="careers-perk-text">We invest in our people. Apprentices and experienced tradespeople alike are supported to grow their skills and career.</div></div>
         </div>
         <div class="careers-perk">
-          <div class="careers-perk-icon">🤝</div>
-          <div>
-            <div class="careers-perk-title">Professional Team Culture</div>
-            <div class="careers-perk-text">Join a team that values quality workmanship, reliability and getting the job done right the first time.</div>
-          </div>
+          <div class="careers-perk-icon"><img src="odyssey-plumbing-drainage-logo.jpg" alt="Odyssey" style="width:26px;height:26px;object-fit:contain;"></div>
+          <div><div class="careers-perk-title">Professional Team Culture</div><div class="careers-perk-text">Join a team that values quality workmanship, reliability and getting the job done right the first time.</div></div>
         </div>
       </div>
     </div>
@@ -489,64 +543,26 @@
           <div class="form-group"><label>First Name *</label><input type="text" placeholder="John" id="c-fname"></div>
           <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" id="c-lname"></div>
         </div>
-        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" id="c-email"></div>
         <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="04XX XXX XXX" id="c-phone"></div>
-        <div class="form-group"><label>Date of Birth</label><input type="date" id="c-dob"></div>
-        <div class="form-row">
-          <div class="form-group"><label>Home Address</label><input type="text" placeholder="123 Example St" id="c-address"></div>
-          <div class="form-group"><label>Postcode</label><input type="text" placeholder="3000" id="c-postcode"></div>
+
+        <div class="careers-section-label">Areas of Expertise <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.75rem;">(select all that apply)</span></div>
+        <div class="expertise-grid">
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="New Home Plumbing"> New Home Plumbing</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="Caravan Plumbing"> Caravan Plumbing</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="Commercial"> Commercial</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="Maintenance"> Maintenance</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="Drainage"> Drainage</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="Rough Ins"> Rough Ins</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="Stack Work"> Stack Work</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="Fit Offs"> Fit Offs</label>
+          <label class="expertise-item"><input type="checkbox" name="expertise" value="CCTV"> CCTV</label>
         </div>
 
-        <div class="careers-section-label">Licence & Compliance</div>
-        <div class="form-row">
-          <div class="form-group"><label>Driver's Licence Number</label><input type="text" placeholder="Licence number" id="c-dlnum"></div>
-          <div class="form-group"><label>Expiry Date</label><input type="date" id="c-dlexp"></div>
-        </div>
-        <div class="form-group"><label>Plumbers Registration / Student Number</label><input type="text" placeholder="Registration or student number" id="c-plumreg"></div>
-        <div class="form-group"><label>White Card Number</label><input type="text" placeholder="White card number" id="c-whitecard"></div>
-
-        <div class="careers-section-label">Tickets Register <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:0.75rem;color:var(--text-light);">(add as many as needed)</span></div>
-        <div id="tickets-container">
-          <div class="ticket-entry">
-            <button type="button" class="ticket-remove" onclick="removeTicket(this)">✕</button>
-            <div class="form-row">
-              <div class="form-group"><label>Ticket / Licence Type</label><input type="text" placeholder="e.g. EWP, Forklift" name="ticket_type[]"></div>
-              <div class="form-group"><label>Licence Number</label><input type="text" placeholder="Licence number" name="ticket_num[]"></div>
-            </div>
-            <div class="form-group"><label>Expiry Date</label><input type="date" name="ticket_exp[]"></div>
-          </div>
-        </div>
-        <button type="button" class="btn-add-ticket" onclick="addTicket()">+ Add Another Ticket</button>
-
-        <div class="careers-section-label">Optional Information</div>
-        <div class="form-group"><label>Years of Experience</label>
-          <select id="c-experience">
-            <option value="">Select...</option>
-            <option>Currently studying / Apprentice</option>
-            <option>1–2 years</option>
-            <option>3–5 years</option>
-            <option>6–10 years</option>
-            <option>10+ years</option>
-          </select>
-        </div>
+        <div class="careers-section-label">Resume</div>
         <div class="form-group">
-          <label>Areas of Expertise <span style="font-weight:400;text-transform:none;">(select all that apply)</span></label>
-          <div class="expertise-grid">
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="New Home Plumbing"> New Home Plumbing</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="Caravan Plumbing"> Caravan Plumbing</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="Commercial"> Commercial</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="Maintenance"> Maintenance</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="Drainage"> Drainage</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="Rough Ins"> Rough Ins</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="Stack Work"> Stack Work</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="Fit Offs"> Fit Offs</label>
-            <label class="expertise-item"><input type="checkbox" name="expertise" value="CCTV"> CCTV</label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Resume Upload <span style="font-weight:400;text-transform:none;letter-spacing:0;">(PDF, DOC or DOCX — max 5MB)</span></label>
+          <label>Upload Resume <span style="font-weight:400;text-transform:none;letter-spacing:0;">(PDF, DOC or DOCX — max 5MB)</span></label>
           <input type="file" id="c-resume" name="resume" accept=".pdf,.doc,.docx" style="padding:0.5rem;">
-          <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.3rem;">Resume upload will be available once the account is upgraded. You may still submit your application without it.</p>
+          <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.3rem;">Resume upload activates on account upgrade. You may still submit without it.</p>
         </div>
 
         <button type="button" class="careers-submit" onclick="submitCareers()">Submit Application</button>
@@ -571,7 +587,7 @@
         <div class="contact-item"><div class="contact-item-icon">✉️</div><div><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:scheduling@opdgroup.net.au">scheduling@opdgroup.net.au</a></div></div></div>
         <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Address</div><div class="contact-item-val">5 Trafalgar Road, Epping VIC 3076</div></div></div>
         <div class="contact-item"><div class="contact-item-icon">🌐</div><div><div class="contact-item-label">Website</div><div class="contact-item-val"><a href="https://opdgroup.net.au" target="_blank">opdgroup.net.au</a></div></div></div>
-        <div class="contact-item"><div class="contact-item-icon">⏰</div><div><div class="contact-item-label">Hours</div><div class="contact-item-val">Mon–Fri 7am–6pm &nbsp;·&nbsp; Sat 8am–4pm</div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">⏰</div><div><div class="contact-item-label">Hours</div><div class="contact-item-val">Mon–Fri 7:00am–4:00pm<br>Saturday by appointment only</div></div></div>
       </div>
     </div>
     <div class="contact-form-wrap">
@@ -613,7 +629,7 @@
   <div class="footer-links">
     <a href="#services">Services</a><a href="#areas">Areas</a>
     <a href="#careers">Careers</a><a href="#contact">Contact</a>
-    <a href="#" onclick="openModal();return false;">Request a Quote</a>
+    <a href="#" onclick="openModal();return false;">Book a Job</a>
   </div>
 </footer>
 
@@ -621,42 +637,105 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-eyebrow">Odyssey Plumbing & Drainage</div>
-    <div class="modal-title">Request a Quote</div>
+    <div class="modal-title">Book a Job</div>
     <div id="modal-form">
-      <p class="modal-sub">Fill in your details below and we'll get back to you promptly.</p>
-      <div class="form-row">
-        <div class="form-group"><label>First Name *</label><input type="text" placeholder="John" id="m-fname" name="first_name"></div>
-        <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" id="m-lname" name="last_name"></div>
-      </div>
+      <p class="modal-sub">Fill in your details below and we'll be in touch to confirm.</p>
+      <div class="form-group"><label>Full Name *</label><input type="text" placeholder="John Smith" id="m-fname" name="full_name"></div>
       <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" id="m-email" name="email"></div>
-      <div class="form-group"><label>Mobile Number *</label><input type="tel" placeholder="04XX XXX XXX" id="m-phone" name="mobile"></div>
-      <div class="form-group"><label>Property Address</label><input type="text" placeholder="123 Example St, Suburb VIC" id="m-address" name="property_address"></div>
+      <div class="form-group"><label>Contact Number *</label><input type="tel" placeholder="04XX XXX XXX" id="m-phone" name="contact_number"></div>
+      <div class="form-group"><label>Address of Site *</label><input type="text" placeholder="123 Example St, Suburb VIC" id="m-address" name="site_address"></div>
       <div class="form-group"><label>Service Required *</label>
         <select id="m-service" name="service">
           <option value="">Select a service...</option>
-          <option>General Residential Plumbing</option><option>Commercial Plumbing</option>
-          <option>Drainage</option><option>Hot Water Systems</option>
-          <option>Excavation & Earthmoving</option><option>Other / Not Sure</option>
+          <option>General Residential Plumbing</option>
+          <option>Commercial Plumbing</option>
+          <option>Drainage</option>
+          <option>Hot Water Systems</option>
+          <option>Excavation & Earthmoving</option>
+          <option>Civil Works</option>
+          <option>Other / Not Sure</option>
         </select>
       </div>
-      <div class="form-group"><label>Preferred Date / Time</label><input type="text" placeholder="e.g. Weekday mornings, ASAP, 15 Jan" id="m-date" name="preferred_date"></div>
-      <div class="form-group"><label>Job Description *</label><textarea placeholder="Describe the job or issue in as much detail as possible..." id="m-desc" name="job_description"></textarea></div>
-      <button class="form-submit" onclick="submitBooking()">Submit Booking Request</button>
+      <button class="form-submit" onclick="submitBooking()">Book a Job</button>
     </div>
     <div class="form-success" id="modal-success" style="display:none;">
       <div class="form-success-icon">🎉</div>
-      <h3>Quote Request Received!</h3>
-      <p>Thanks for contacting Odyssey Plumbing & Drainage.<br>We'll be in touch shortly to discuss your requirements.<br><br>For urgent enquiries call us on <strong style="color:var(--sky);">9308 4779</strong>.</p>
+      <h3>Booking Received!</h3>
+      <p>Thanks for contacting Odyssey Plumbing & Drainage.<br>We'll be in touch shortly to confirm your booking.<br><br>For urgent enquiries call us on <strong style="color:var(--sky);">9308 4779</strong>.</p>
     </div>
   </div>
 </div>
 
 <script>
+  function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    const btn = document.querySelector('.hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('nav-menu');
+    const btn = document.querySelector('.hamburger');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+  }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    const nav = document.querySelector('nav');
+    if(!nav.contains(e.target)) closeMenu();
+  });
+
+  // Auto-scroll through sections
+  const sections = ['home','services','about','areas','careers','contact'];
+  let currentSection = 0;
+  let autoScrollTimer = null;
+  let userInteracted = false;
+  let interactionTimer = null;
+
+  function startAutoScroll() {
+    autoScrollTimer = setInterval(() => {
+      if(!userInteracted) {
+        currentSection = (currentSection + 1) % sections.length;
+        const target = document.getElementById(sections[currentSection]);
+        if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 8000);
+  }
+
+  function pauseAutoScroll() {
+    userInteracted = true;
+    clearTimeout(interactionTimer);
+    // Resume after 15 seconds of no interaction
+    interactionTimer = setTimeout(() => {
+      userInteracted = false;
+      // Detect which section is currently in view
+      sections.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if(el) {
+          const rect = el.getBoundingClientRect();
+          if(rect.top >= -100 && rect.top <= window.innerHeight / 2) {
+            currentSection = i;
+          }
+        }
+      });
+    }, 15000);
+  }
+
+  // Detect user interaction
+  ['scroll','wheel','touchstart','keydown','mousedown'].forEach(evt => {
+    window.addEventListener(evt, pauseAutoScroll, { passive: true });
+  });
+
+  // Start auto-scroll after 3 seconds on page load
+  setTimeout(startAutoScroll, 3000);
+
   function openModal() { document.getElementById('bookingModal').classList.add('open'); document.body.style.overflow='hidden'; }
   function closeModal() { document.getElementById('bookingModal').classList.remove('open'); document.body.style.overflow=''; }
 
   function submitBooking() {
-    const fields=['m-fname','m-lname','m-email','m-phone','m-service','m-desc'];
+    const fields=['m-fname','m-email','m-phone','m-address','m-service'];
     let ok=true;
     fields.forEach(id=>{ const el=document.getElementById(id); if(!el.value.trim()){el.style.borderColor='#e05555';ok=false;}else el.style.borderColor=''; });
     if(!ok)return;
@@ -666,14 +745,11 @@
     btn.disabled = true;
 
     const data = {
-      first_name: document.getElementById('m-fname').value,
-      last_name: document.getElementById('m-lname').value,
+      full_name: document.getElementById('m-fname').value,
       email: document.getElementById('m-email').value,
-      mobile: document.getElementById('m-phone').value,
-      property_address: document.getElementById('m-address').value,
-      service: document.getElementById('m-service').value,
-      preferred_date: document.getElementById('m-date').value,
-      job_description: document.getElementById('m-desc').value
+      contact_number: document.getElementById('m-phone').value,
+      site_address: document.getElementById('m-address').value,
+      service: document.getElementById('m-service').value
     };
 
     fetch('https://formspree.io/f/mnjldkrk', {
@@ -687,13 +763,13 @@
         document.getElementById('modal-form').style.display='none';
         document.getElementById('modal-success').style.display='block';
       } else {
-        btn.textContent = 'Submit Booking Request';
+        btn.textContent = 'Book a Job';
         btn.disabled = false;
         alert('Something went wrong. Please try again or call us on 9308 4779.');
       }
     })
     .catch(() => {
-      btn.textContent = 'Submit Booking Request';
+      btn.textContent = 'Book a Job';
       btn.disabled = false;
       alert('Something went wrong. Please try again or call us on 9308 4779.');
     });
@@ -764,7 +840,7 @@
   }
 
   function submitCareers() {
-    const required = ['c-fname','c-lname','c-email','c-phone'];
+    const required = ['c-fname','c-lname','c-phone'];
     let ok = true;
     required.forEach(id => {
       const el = document.getElementById(id);
@@ -777,27 +853,11 @@
     btn.disabled = true;
 
     const expertise = [...document.querySelectorAll('input[name="expertise"]:checked')].map(cb => cb.value).join(', ');
-    const tickets = [...document.querySelectorAll('.ticket-entry')].map((t,i) => {
-      const type = t.querySelector('input[name="ticket_type[]"]')?.value || '';
-      const num = t.querySelector('input[name="ticket_num[]"]')?.value || '';
-      const exp = t.querySelector('input[name="ticket_exp[]"]')?.value || '';
-      return type ? `Ticket ${i+1}: ${type} | ${num} | Expires: ${exp}` : null;
-    }).filter(Boolean).join('\n');
 
     const data = {
       first_name: document.getElementById('c-fname').value,
       last_name: document.getElementById('c-lname').value,
-      email: document.getElementById('c-email').value,
       mobile: document.getElementById('c-phone').value,
-      date_of_birth: document.getElementById('c-dob').value,
-      address: document.getElementById('c-address').value,
-      postcode: document.getElementById('c-postcode').value,
-      drivers_licence: document.getElementById('c-dlnum').value,
-      licence_expiry: document.getElementById('c-dlexp').value,
-      plumbers_registration: document.getElementById('c-plumreg').value,
-      white_card: document.getElementById('c-whitecard').value,
-      tickets: tickets || 'None provided',
-      years_experience: document.getElementById('c-experience').value,
       areas_of_expertise: expertise || 'None selected'
     };
 
