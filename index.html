@@ -34,65 +34,59 @@
   }
   .nav-logo-text span { color: var(--sky); }
   .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100px;
-    left: 0; right: 0;
-    background: var(--white);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     list-style: none;
-    padding: 1rem 2%;
-    gap: 0;
-    z-index: 999;
-    border-top: 3px solid var(--sky);
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
   }
-  .nav-links.open { display: flex; }
-  .nav-links li { border-bottom: 1px solid var(--light-gray); }
-  .nav-links li:last-child { border-bottom: none; }
+  .nav-links li { border: none; }
   .nav-links a {
     display: block;
-    padding: 0.85rem 1rem;
+    padding: 0.6rem 0.9rem;
     color: var(--navy-dark);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    border-radius: 4px;
     transition: color 0.2s, background 0.2s;
   }
   .nav-links a:hover { color: var(--sky); background: var(--off-white); }
   .nav-cta {
-    display: block !important;
-    margin: 0.5rem 1rem !important;
     background: var(--sky) !important;
     color: var(--navy-dark) !important;
-    padding: 0.7rem 1rem !important;
+    padding: 0.65rem 1.1rem !important;
     border-radius: 4px !important;
     font-weight: 700 !important;
-    text-align: center !important;
+    margin-left: 0.5rem !important;
   }
   .nav-cta:hover { background: var(--sky-light) !important; }
   .nav-cta-careers {
-    display: block !important;
-    margin: 0.5rem 1rem 0.75rem !important;
     background: transparent !important;
     color: var(--navy-dark) !important;
-    padding: 0.7rem 1rem !important;
+    padding: 0.65rem 1.1rem !important;
     border-radius: 4px !important;
     font-weight: 700 !important;
     border: 2px solid var(--navy-dark) !important;
-    text-align: center !important;
   }
   .nav-cta-careers:hover { background: var(--navy-dark) !important; color: var(--white) !important; }
+  @media (max-width: 1100px) and (min-width: 901px) {
+    .nav-links { gap: 0; }
+    .nav-links a { padding: 0.55rem 0.6rem; font-size: 0.76rem; letter-spacing: 0.03em; }
+    .nav-cta, .nav-cta-careers { padding: 0.55rem 0.85rem !important; font-size: 0.76rem !important; }
+  }
 
-  /* Hamburger button */
+  /* Hamburger button - mobile only */
   .hamburger {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 5px;
     margin-left: auto;
@@ -130,7 +124,9 @@
   .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
   .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 800; color: white; line-height: 1.05; margin-bottom: 1.5rem; text-transform: uppercase; }
   .hero h1 span { color: var(--sky); }
-  .hero-sub { font-size: 1.05rem; color: var(--sky-light); line-height: 1.7; margin-bottom: 2.5rem; max-width: 500px; }
+  .hero-sub { font-size: 1.05rem; color: var(--sky-light); line-height: 1.7; margin-bottom: 2rem; max-width: 500px; }
+  .hero-services { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; max-width: 500px; }
+  .hero-service-chip { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(61,184,232,0.12); border: 1px solid rgba(61,184,232,0.35); color: var(--sky-light); padding: 0.4rem 0.95rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; }
   .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary { background: var(--sky); color: var(--navy-dark); border: none; padding: 1rem 2rem; font-family: 'Barlow', sans-serif; font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
   .btn-primary:hover { background: var(--sky-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(61,184,232,0.35); }
@@ -141,11 +137,11 @@
   .hero-stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: var(--sky); display: block; }
   .hero-stat-label { font-size: 0.72rem; color: var(--sky-light); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
   .hero-right { display: flex; flex-direction: column; gap: 1rem; }
-  .trust-card { background: rgba(15,37,64,0.75); border: 1px solid rgba(61,184,232,0.25); border-radius: 8px; padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 1rem; backdrop-filter: blur(6px); transition: border-color 0.2s; }
-  .trust-card:hover { border-color: rgba(61,184,232,0.6); }
-  .trust-icon { width: 44px; height: 44px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.3rem; }
-  .trust-title { font-weight: 700; color: white; font-size: 0.95rem; margin-bottom: 0.15rem; }
-  .trust-desc { font-size: 0.8rem; color: var(--sky-light); line-height: 1.4; }
+  .trust-card { background: rgba(15,37,64,0.75); border: 1px solid rgba(61,184,232,0.3); border-radius: 10px; padding: 1.4rem 1.6rem; display: flex; align-items: center; gap: 1.1rem; backdrop-filter: blur(6px); transition: border-color 0.2s, transform 0.2s; }
+  .trust-card:hover { border-color: rgba(61,184,232,0.65); transform: translateY(-2px); }
+  .trust-icon { width: 52px; height: 52px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem; }
+  .trust-title { font-weight: 800; color: white; font-size: 1.1rem; margin-bottom: 0.2rem; letter-spacing: 0.01em; }
+  .trust-desc { font-size: 0.88rem; color: var(--sky-light); line-height: 1.45; }
 
   /* SECTIONS */
   section { padding: 5rem 5%; scroll-margin-top: 120px; }
@@ -232,7 +228,7 @@
     flex-shrink: 0;
   }
   .opd-icon img { width: 30px; height: 30px; object-fit: contain; }
-  .opd-icon-lg img { width: 34px; height: 34px; object-fit: contain; }
+  .opd-icon-lg img { width: 40px; height: 40px; object-fit: contain; }
   .fleet-banner { background: var(--navy-dark); padding: 4rem 5%; }
   .fleet-banner-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
   .fleet-banner-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; text-transform: uppercase; color: white; margin-bottom: 0.8rem; }
@@ -302,7 +298,26 @@
   @media (max-width: 900px) {
     .hero-grid, .why-grid { grid-template-columns: 1fr; }
     .hero-right, .why-right { display: none; }
-    nav ul.nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav ul.nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100px;
+      left: 0; right: 0;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 1rem 2%;
+      gap: 0;
+      z-index: 999;
+      border-top: 3px solid var(--sky);
+    }
+    nav ul.nav-links.open { display: flex; }
+    nav ul.nav-links li { border-bottom: 1px solid var(--light-gray); }
+    nav ul.nav-links li:last-child { border-bottom: none; }
+    nav ul.nav-links a { padding: 0.85rem 1rem; font-size: 0.9rem; border-radius: 0; }
+    nav ul.nav-links .nav-cta,
+    nav ul.nav-links .nav-cta-careers { margin: 0.5rem 1rem !important; text-align: center !important; display: block !important; }
     .mobile-book { display: inline-block; }
     .form-row { grid-template-columns: 1fr; }
   }
@@ -346,6 +361,13 @@
     <div>
       <h1>We Never Turn Our Back <span>On Any Job</span></h1>
       <p class="hero-sub">Residential, commercial and civil plumbing across Melbourne — drainage, excavation, earthmoving and specialist work on caravans. Licensed, fully insured, and trusted by Melbourne's leading commercial operators.</p>
+      <div class="hero-services">
+        <span class="hero-service-chip">Residential</span>
+        <span class="hero-service-chip">Commercial</span>
+        <span class="hero-service-chip">Civil</span>
+        <span class="hero-service-chip">Drainage</span>
+        <span class="hero-service-chip">Caravans</span>
+      </div>
       <div class="hero-buttons">
         <button class="btn-primary" onclick="openModal()">Book a Job</button>
         <button class="btn-outline" onclick="openContactModal()">Send Enquiry</button>
@@ -384,7 +406,7 @@
       <div class="service-card-body">
         <span class="service-icon"><i class="fas fa-building"></i></span>
         <div class="service-name">Commercial Plumbing</div>
-        <p class="service-desc">Reliable plumbing for businesses, manufacturing facilities, developers and property managers.</p>
+        <p class="service-desc">Reliable plumbing for businesses, manufacturing facilities, developers and property managers — including modular bathroom pod fitouts for multi-residential and commercial builds.</p>
       </div>
     </div>
     <div class="service-card">
@@ -418,7 +440,7 @@
         <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Upfront, Honest Pricing</div><div class="why-feature-text">No hidden fees. We provide clear quotes before starting any work so you always know what you're paying.</div></div></div>
         <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Fast Response Times</div><div class="why-feature-text">Prompt attendance on every job — we understand that delays cost our clients time and money.</div></div></div>
         <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Problem-Solving Approach</div><div class="why-feature-text">We don't just fix pipes — we analyse, diagnose and solve. Our team tackles complex challenges others walk away from.</div></div></div>
-        <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Residential, Commercial, Civil & Caravan</div><div class="why-feature-text">From single-dwelling repairs to large manufacturing fitouts, civil works and specialist plumbing for the caravan industry — we have the equipment and expertise to deliver.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Residential, Commercial, Civil & Caravan</div><div class="why-feature-text">From single-dwelling repairs to large manufacturing modular pod fitouts, civil works and specialist plumbing for the caravan industry — we have the equipment and expertise to deliver.</div></div></div>
       </div>
     </div>
     <div class="why-right">
