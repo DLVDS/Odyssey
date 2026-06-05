@@ -17,7 +17,14 @@
     --emergency: #c0392b;
   }
   html { scroll-behavior: smooth; scroll-padding-top: 120px; }
-  body { font-family: 'Barlow', sans-serif; color: var(--text-dark); background: var(--white); overflow-x: hidden; }
+  body {
+    font-family: 'Barlow', sans-serif; color: var(--text-dark);
+    background-color: var(--navy-dark);
+    background-image: url('odyssey-bg.jpg');
+    background-size: cover; background-position: center center;
+    background-repeat: no-repeat; background-attachment: fixed;
+    overflow-x: hidden;
+  }
 
   /* NAV */
   nav {
@@ -114,11 +121,11 @@
   .hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 140px 5% 80px; overflow: hidden; }
   .hero-bg {
     position: absolute; inset: 0;
-    background: var(--navy-dark); z-index: 0;
+    background: transparent; z-index: 0;
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(10,24,42,0.95) 0%, rgba(26,58,92,0.7) 60%, rgba(30,73,118,0.4) 100%);
+    background: linear-gradient(120deg, rgba(10,24,42,0.92) 0%, rgba(15,37,64,0.72) 55%, rgba(30,73,118,0.42) 100%);
     z-index: 1;
   }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
@@ -171,7 +178,7 @@
   .service-card.emergency .service-list li::before { background: var(--emergency); }
 
   /* WHY US */
-  .why-section { background: var(--navy-dark); color: white; }
+  .why-section { background: rgba(15,37,64,0.70); color: white; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto; }
   .why-section .section-title { color: white; }
   .why-section .section-sub { color: var(--sky-light); }
@@ -192,7 +199,7 @@
   .areas-map-wrap iframe { width: 100%; height: 420px; border: none; display: block; }
 
   /* CONTACT */
-  .contact-section { background: var(--navy-dark); color: white; }
+  .contact-section { background: rgba(15,37,64,0.70); color: white; }
   .contact-header { max-width: 800px; margin: 0 auto 3rem; text-align: center; }
   .contact-header .section-label { justify-content: center; }
   .contact-header .section-sub { margin: 0 auto; }
@@ -229,7 +236,7 @@
   }
   .opd-icon img { width: 30px; height: 30px; object-fit: contain; }
   .opd-icon-lg img { width: 40px; height: 40px; object-fit: contain; }
-  .fleet-banner { background: var(--navy-dark); padding: 4rem 5%; }
+  .fleet-banner { background: rgba(15,37,64,0.70); padding: 4rem 5%; }
   .fleet-banner-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
   .fleet-banner-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; text-transform: uppercase; color: white; margin-bottom: 0.8rem; }
   .fleet-banner-sub { font-size: 0.95rem; color: var(--sky-light); line-height: 1.7; }
@@ -296,6 +303,7 @@
     .contact-items { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
+    body { background-attachment: scroll; }
     .hero-grid, .why-grid { grid-template-columns: 1fr; }
     .hero-right, .why-right { display: none; }
     .hamburger { display: flex; }
@@ -545,7 +553,7 @@
   </div>
   <div class="contact-items">
     <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-phone"></i></div><div><div class="contact-item-label">Phone</div><div class="contact-item-val"><a href="tel:93084779">9308 4779</a></div></div></div>
-    <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:scheduling@opdgroup.net.au">scheduling@opdgroup.net.au</a></div></div></div>
+    <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-envelope"></i></div><div><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:info@opdgroup.net.au">info@opdgroup.net.au</a></div></div></div>
     <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label">Address</div><div class="contact-item-val">5 Trafalgar Road, Epping VIC 3076</div></div></div>
     <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-globe"></i></div><div><div class="contact-item-label">Website</div><div class="contact-item-val"><a href="https://opdgroup.net.au" target="_blank">opdgroup.net.au</a></div></div></div>
     <div class="contact-item"><div class="contact-item-icon"><i class="fas fa-clock"></i></div><div><div class="contact-item-label">Hours</div><div class="contact-item-val">Mon–Fri 7:00am–4:00pm<br>Saturday by appointment only</div></div></div>
@@ -785,7 +793,7 @@
     ];
 
     const body = bodyLines.join('\r\n');
-    const mailto = `mailto:scheduling@opdgroup.net.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:info@opdgroup.net.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
   }
 
