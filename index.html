@@ -20,10 +20,17 @@
   body {
     font-family: 'Barlow', sans-serif; color: var(--text-dark);
     background-color: var(--navy-dark);
-    background-image: url('odyssey-bg.jpg');
-    background-size: cover; background-position: center center;
-    background-repeat: no-repeat; background-attachment: fixed;
     overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: url('odyssey-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
   /* NAV */
@@ -303,9 +310,13 @@
     .contact-items { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
-    body { background-attachment: scroll; }
     .hero-grid, .why-grid { grid-template-columns: 1fr; }
     .hero-right, .why-right { display: none; }
+    /* Wide hero photo over-zooms on tall phone screens, so dial it right
+       down here — the dark sections become near-solid navy with only a hint
+       of texture, which also improves text legibility on small screens. */
+    .hero-overlay { background: linear-gradient(180deg, rgba(10,24,42,0.94) 0%, rgba(15,37,64,0.90) 100%); }
+    .why-section, .contact-section, .fleet-banner { background: rgba(15,37,64,0.93); }
     .hamburger { display: flex; }
     nav ul.nav-links {
       display: none;
