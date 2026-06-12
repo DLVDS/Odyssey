@@ -139,6 +139,9 @@
   .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.8rem, 5vw, 4.4rem); font-weight: 800; color: white; line-height: 1.05; margin-bottom: 1.5rem; text-transform: uppercase; }
   .hero h1 span { color: var(--sky); }
   .hero-sub { font-size: 1.05rem; color: var(--sky-light); line-height: 1.7; margin-bottom: 2rem; max-width: 500px; }
+  .hero-brandline { display: flex; flex-direction: column; gap: 0.1rem; margin-bottom: 1.8rem; }
+  .hero-brandline-name { font-weight: 700; color: #fff; font-size: 0.95rem; letter-spacing: 0.02em; }
+  .hero-brandline-tag { color: var(--sky-light); font-style: italic; font-size: 0.95rem; }
   .hero-services { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; max-width: 500px; }
   .hero-service-chip { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(61,184,232,0.12); border: 1px solid rgba(61,184,232,0.35); color: var(--sky-light); padding: 0.4rem 0.95rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; }
   .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -288,6 +291,7 @@
   .footer-logo img { height: 44px; object-fit: contain; }
   .footer-logo-text { display: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; color: white; text-transform: uppercase; }
   .footer-logo-text span { color: var(--sky); }
+  .hero-subhead { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; color: #fff; line-height: 1.2; margin: 0.2rem 0 0.9rem; max-width: 520px; }
   .footer-text { font-size: 0.8rem; color: rgba(168,223,245,0.45); text-align: center; line-height: 1.7; }
   .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a { font-size: 0.8rem; color: rgba(168,223,245,0.45); text-decoration: none; transition: color 0.2s; }
@@ -379,13 +383,15 @@
   <div class="hero-grid">
     <div>
       <h1>We Never Turn Our Back <span>On Any Job</span></h1>
-      <p class="hero-sub">Residential, commercial and civil plumbing across Melbourne — drainage, excavation, earthmoving and specialist work on caravans. Licensed, fully insured, and trusted by Melbourne's leading commercial operators.</p>
+      <div class="hero-subhead">Residential, Commercial &amp; Civil Plumbing Across Melbourne</div>
+      <p class="hero-sub">Providing expert plumbing solutions across residential, commercial and civil projects, including excavation and specialist custom caravan and RV plumbing services. Fully licensed and insured, we're trusted by Melbourne's leading builders, developers, manufacturers and commercial operators to deliver quality workmanship, reliability, and professional service every time.</p>
+      <div class="hero-brandline"><span class="hero-brandline-name">OPD Group</span><span class="hero-brandline-tag">Built on relationships. Driven by standards. Proven by results.</span></div>
       <div class="hero-services">
         <span class="hero-service-chip">Residential</span>
         <span class="hero-service-chip">Commercial</span>
         <span class="hero-service-chip">Civil</span>
         <span class="hero-service-chip">Drainage</span>
-        <span class="hero-service-chip">Caravans</span>
+        <span class="hero-service-chip">Caravans / RV's</span>
       </div>
       <div class="hero-buttons">
         <button class="btn-primary" onclick="openModal()">Book a Job</button>
@@ -397,7 +403,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="trust-card"><div class="trust-icon"><span class="opd-icon-lg"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="trust-title">Licensed: VIC · NSW · QLD · NZ</div><div class="trust-desc">Fully accredited across Victoria, New South Wales, Queensland and New Zealand.</div></div></div>
+      <div class="trust-card"><div class="trust-icon"><span class="opd-icon-lg"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="trust-title">Licensed: VIC · NSW · QLD · NZ</div><div class="trust-desc">All works carried out is accredited across Victoria, New South Wales, Queensland and New Zealand.</div></div></div>
       <div class="trust-card"><div class="trust-icon"><span class="opd-icon-lg"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="trust-title">Fully Insured</div><div class="trust-desc">Complete public liability and professional indemnity on every job.</div></div></div>
       <div class="trust-card"><div class="trust-icon"><span class="opd-icon-lg"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="trust-title">Fast Response Times</div><div class="trust-desc">Prompt attendance on every job across Melbourne.</div></div></div>
       <div class="trust-card"><div class="trust-icon"><span class="opd-icon-lg"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="trust-title">Melbourne-Wide Service</div><div class="trust-desc">Based in Epping — servicing all of Melbourne.</div></div></div>
@@ -455,7 +461,7 @@
       <h2 class="section-title">Professionals You Can Rely On</h2>
       <p class="section-sub">Odyssey Plumbing & Drainage is a trusted name across Melbourne. We combine residential, commercial, civil and caravan industry expertise with honest, transparent service on every job.</p>
       <div class="why-features">
-        <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Licensed Across VIC · NSW · QLD · NZ</div><div class="why-feature-text">All work carried out by fully licensed plumbers, accredited across Victoria, New South Wales, Queensland and New Zealand.</div></div></div>
+        <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Licensed Across VIC · NSW · QLD · NZ</div><div class="why-feature-text">All works carried out is accredited across Victoria, New South Wales, Queensland and New Zealand.</div></div></div>
         <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Upfront, Honest Pricing</div><div class="why-feature-text">No hidden fees. We provide clear quotes before starting any work so you always know what you're paying.</div></div></div>
         <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Fast Response Times</div><div class="why-feature-text">Prompt attendance on every job — we understand that delays cost our clients time and money.</div></div></div>
         <div class="why-feature"><div class="why-feature-icon"><span class="opd-icon"><img src="opd-icon.png" alt="Odyssey icon"></span></div><div><div class="why-feature-title">Problem-Solving Approach</div><div class="why-feature-text">We don't just fix pipes — we analyse, diagnose and solve. Our team tackles complex challenges others walk away from.</div></div></div>
